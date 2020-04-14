@@ -1,0 +1,45 @@
+.tab-group {
+  flex: none;
+  box-sizing: border-box;
+  padding: 0 5px;
+}
+.tab-group ul {
+  list-style: none;
+  margin: auto;
+  padding: 4px 0;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+}
+.tab-group ul li {
+  flex: 1;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  display: inline-block;
+  padding: 4px 0 2px;
+  cursor: pointer;
+}
+.tab-group ul li .icon {
+  height: 25px;
+  width: 25px;
+  margin: auto;
+}
+.tab-group ul li .icon svg {
+
+}
+.tab-group ul li .icon svg g {
+  fill: #fff !important;
+}
+.tab-group ul li.active .icon svg g {
+  fill: #1f8e3f !important;
+}
+.tab-group ul li .label {
+  font-size: 0.8em;
+  display: block;
+  margin: 6px 0 0;
+  text-align: center;
+}
+.tab-group ul li.active .label {
+  color: #1f8e3f;
+}

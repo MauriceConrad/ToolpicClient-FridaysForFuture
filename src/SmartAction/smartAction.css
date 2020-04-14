@@ -1,0 +1,78 @@
+.smart-modal {
+  position: fixed;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.8);
+  left: 50%;
+  top: 50%;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  color: #fff;
+  width: calc(100% - 20px);
+  max-width: 350px;
+  z-index: 5;
+  transform-origin: 50% 50%;
+  animation: none;
+  animation-timing-function: cubic-bezier(.17,.67,.62,1.11);
+}
+@keyframes showModal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.smart-modal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.smart-modal ul li {
+  padding: 10px 12px;
+  border: 2px solid #000;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  background-color: #1c1c1c;
+
+}
+.smart-modal ul li:first-child {
+  border-top-width: 2px;
+  border-radius: 12px 12px 0 0;
+}
+.smart-modal ul li:last-child {
+  border-bottom-width: 2px;
+  border-radius: 0 0 12px 12px;
+}
+.smart-modal ul li:only-child {
+  border-radius: 12px;
+}
+.smart-modal ul li.active {
+  background-color: #177d39;
+  border-color: #10622c;
+}
+.smart-modal ul li .smart-inner {
+
+}
+.smart-action-component {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  animation: none;
+  animation-timing-function: cubic-bezier(.17,.67,.62,1.11);
+}
+@keyframes showComponent {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

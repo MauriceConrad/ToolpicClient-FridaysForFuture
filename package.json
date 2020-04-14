@@ -1,0 +1,40 @@
+{
+  "name": "toolpicclient",
+  "version": "1.0.0",
+  "description": "Toolpic client",
+  "main": "lib/app.js",
+  "scripts": {
+    "build": "rm -r lib & webpack",
+    "templates": "webpack --config webpack.templates.js"
+  },
+  "keywords": [
+    "toolpic",
+    "client",
+    "firdays",
+    "for",
+    "future"
+  ],
+  "author": "Maurice Conrad",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.1.3",
+    "to-string-loader": "^1.1.6",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "animejs": "^3.2.0",
+    "swiper": "^5.3.6",
+    "toolpic": "^0.5.2",
+    "vue-async-computed": "^3.1.2",
+    "vue-awesome-swiper": "^4.0.7"
+  }
+}

@@ -1,0 +1,91 @@
+.feautue-demo-container {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+.feautue-demo-container .feauture {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 5px;
+  display: inline-block;
+}
+.feautue-demo-container .feauture .box {
+  background-color: #fff;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  animation: shosw .5s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes show {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.feautue-demo-container .feauture .box[data-float="top"] {
+  padding: 30px 10px 10px 10px;
+  -webkit-clip-path: polygon(0% 20px, calc(50% - 20px) 20px, 50% 0%, calc(50% + 20px) 20px, 100% 20px, 100% 100%, 0% 100%);
+  transform-origin: 50% 0%;
+}
+.feautue-demo-container .feauture .box[data-float="right"] {
+  padding: 10px 30px 10px 10px;
+  -webkit-clip-path: polygon(0% 0%, calc(100% - 20px) 0%, calc(100% - 20px) calc(50% - 20px), 100% 50%, calc(100% - 20px) calc(50% + 20px), calc(100% - 20px) 100%, 0% 100%);
+  transform-origin: 100% 50%;
+}
+.feautue-demo-container .feauture .box[data-float="bottom"] {
+  padding: 10px 10px 30px 10px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 20px), calc(50% + 20px) calc(100% - 20px), 50% 100%, calc(50% - 20px) calc(100% - 20px), 0% calc(100% - 20px));
+  transform-origin: 50% 100%;
+}
+.feautue-demo-container .feauture .box[data-float="left"] {
+  padding: 10px 10px 10px 30px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 20px 100%, 20px calc(50% + 20px), 0% 50%, 20px calc(50% - 20px));
+  transform-origin: 0% 50%;
+}
+.feautue-demo-container .feauture .box .image {
+  text-align: center;
+  min-width: 200px;
+}
+.feautue-demo-container .feauture .box .image img {
+  width: 200px;
+  max-width: 300px;
+  max-height: 300px;
+  display: inline-block;
+  margin: 10px 0;
+}
+.feautue-demo-container .feauture .box .label {
+  font-size: 1em;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+  margin: 10px 0;
+  max-width: 450px;
+}
+.feautue-demo-container .feauture .box .footer {
+  text-align: center;
+}
+.feautue-demo-container .feauture .box .footer button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  vertical-align: middle;
+  padding: 6px 12px;
+  background-color: #2f8247;
+  border-radius: 3px;
+  font-size: 1.2em;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+  cursor: pointer;
+  color: #fff;
+}

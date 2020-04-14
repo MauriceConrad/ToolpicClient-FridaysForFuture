@@ -1,0 +1,121 @@
+.view.view-settings {
+
+}
+.view.view-settings .inner {
+  overflow: scroll;
+}
+.view.view-settings .inner::-webkit-scrollbar {
+  display: none;
+}
+.view.view-settings .content-settings {
+  max-width: 800px;
+  margin: auto;
+  padding: 10px 5px;
+  text-align: center;
+  font-weight: 300;
+}
+.view.view-settings .content-settings .title {
+  text-align: center;
+  margin: 0 0 15px;
+}
+.view.view-settings .content-settings .title .law-text {
+  font-size: 0.9em;
+}
+.view.view-settings .content-settings .title .emblem {
+  width: 250px;
+  text-align: center;
+}
+.view.view-settings .content-settings .impressum {
+  margin: 10px 0;
+  font-size: 0.8em;
+}
+.view.view-settings .content-settings a {
+  color: inherit;
+}
+.view.view-settings .content-settings .more-info h3 {
+  margin: 20px 0 3px;
+}
+.view.view-settings .content-settings .links {
+
+}
+.view.view-settings .content-settings .links a {
+  text-decoration: none;
+}
+.view.view-settings .content-settings .links .btn {
+  margin: 10px 0;
+  background-color: #2f8247;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 5px 8px;
+  color: #fff;
+  font-weight: 300;
+
+}
+.view.view-settings .content-settings .links .btn > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.view.view-settings .content-settings .links .btn .icon {
+  width: 25px;
+  height: 25px;
+}
+.view.view-settings .content-settings .links .btn .icon svg {
+  width: 100%;
+  height: 100%;
+}
+.view.view-settings .content-settings .links .btn .icon svg * {
+  fill: #fff;
+}
+.view.view-settings .content-settings .links .btn .label {
+
+}
+
+
+.view.view-settings .content-settings .settings {
+
+}
+.view.view-settings .content-settings .settings h3 {
+  margin: 40px 0 5px;
+  font-size: 1.6em;
+
+}
+.view.view-settings .content-settings .settings .settings-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.view.view-settings .content-settings .settings .settings-list li {
+  margin: 6px 0;
+}
+.view.view-settings .content-settings .settings .settings-list li > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.view.view-settings .content-settings .settings .settings-list li .action {
+
+}
+.view.view-settings .content-settings .settings .settings-list li .label {
+
+}
+.view.view-settings .content-settings .settings .settings-list li input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 1em;
+  background: #fff;
+  outline: none;
+  background-color: #1DA64A;
+  border: 1px solid #1DA64A;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background-size: 135%;
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8Y2lyY2xlIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSIgc3R5bGU9ImZpbGw6ICNmZmY7IiAvPgo8L3N2Zz4K');
+  transition: all 0.3s;
+}
+.view.view-settings .content-settings .settings .settings-list li input[type="checkbox"]:checked {
+  background-size: 40%;
+
+}

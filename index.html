@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Toolpic Client</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/ico/favicon-16x16.png">
+    <link rel="manifest" href="icons/ico/site.webmanifest">
+    <link rel="mask-icon" href="icons/ico/safari-pinned-tab.svg" color="#1D7441">
+    <link rel="shortcut icon" href="icons/ico/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Toolpic">
+
+
+    <!-- iPhone Xs Max (1242px x 2688px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="launch/apple-launch-1242x2688.png">
+    <!-- iPhone Xr (828px x 1792px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="launch/apple-launch-828x1792.png">
+    <!-- iPhone X, Xs (1125px x 2436px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="launch/apple-launch-1125x2436.png">
+    <!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="launch/apple-launch-1242x2208.png">
+    <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="launch/apple-launch-750x1334.png">
+    <!-- iPad Pro 12.9" (2048px x 2732px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="launch/apple-launch-2048x2732.png">
+    <!-- iPad Pro 11” (1668px x 2388px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="launch/apple-launch-1668x2388.png">
+    <!-- iPad Pro 10.5" (1668px x 2224px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="launch/apple-launch-1668x2224.png">
+    <!-- iPad Mini, Air (1536px x 2048px) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="launch/apple-launch-1536x2048.png">
+
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Include stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/tab-group.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/btn-group.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/btns.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/feauture-demo.css">
+    <link rel="stylesheet" href="css/smartAction.css">
+
+
+  </head>
+  <body>
+    <div class="app">
+      <div class="bar bar-top">
+        <div class="bar-inner">
+          <div class="bar-area bar-area-left">
+            <div class="btn-group btn-group-edit-preview" v-if="activeViewIndex == 1 && isMobile">
+              <div class="btn btn-icon" v-bind:class="{ active: activeEditView == 0 }" @click="activeEditView = 0">
+                <div class="icon" v-html="iconsEditGroup ? iconsEditGroup[0] : ''"></div>
+              </div>
+              <div class="btn btn-icon" v-bind:class="{ active: activeEditView == 1 }" @click="activeEditView = 1">
+                <div class="icon" v-html="iconsEditGroup ? iconsEditGroup[1] : ''"></div>
+              </div>
+            </div>
+            <div class="btns btns-export" data-hint="Hier kannst du das SharePic rendern!" v-if="activeViewIndex == 1">
+              <div class="btn" v-on:click="renderTemplate(); activeViewIndex = 2">
+                <div class="icon" v-html="iconsRenderView ? iconsRenderView[1] : ''"></div>
+              </div>
+
+            </div>
+          </div>
+          <div class="title" v-if="pageTitle">
+            <h1>
+              {{ activeViewIndex == 0 ? activeTemplateGroup.name : pageTitle  }}
+            </h1>
+          </div>
+          <div class="bar-area bar-area-right">
+            <select class="select-doc" v-if="activeTemplate && activeViewIndex == 1" @change="changeDoc" v-model="activeDocIndex">
+              <option v-for="doc in activeTemplate.documents" v-bind:value="activeTemplate.documents.indexOf(doc)">
+                {{ doc.alias }}
+              </option>
+            </select>
+            <!--<div class="select-proxy" v-if="activeTemplate && activeViewIndex == 1" @click="proxySelect">
+              {{ activeTemplate.documents[activeDocIndex].alias }}
+            </div>-->
+            <div class="btns" v-if="activeViewIndex == 2">
+              <div class="btn" v-on:click="download" v-if="results.length">
+                <div class="icon" v-html="iconsRenderView[2]"></div>
+              </div>
+              <div class="btn" v-on:click="renderTemplate">
+                <div class="icon" v-html="iconsRenderView[0]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+
+        <div class="views" v-bind:class="{ 'split-view': splitView }">
+          <div class="views-inner" v-bind:style="{ left: '-' + (activeViewIndex * 1 * 100) + '%' }">
+            <div class="view view-templates">
+              <swiper ref="viewSwiper" :options="swiperOptions" @slide-change="swiperSlideChange">
+                <swiper-slide v-for="group in templates">
+                  <div class="inner">
+
+                    <ul class="items-list">
+                      <li v-for="item in group.items">
+                        <div class="item-inner">
+                          <div class="item-render" @click="selectTemplate(item)">
+                            <img v-bind:src="item.preview" v-bind:alt="item.name">
+                          </div>
+                          <div class="item-label">
+                            {{ item.name }}
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </swiper-slide>
+                <div class="swiper-pagination" slot="pagination"></div>
+                <div class="swiper-scrollbar" slot="scrollbar"></div>
+              </swiper>
+            </div>
+            <div class="view view-edit">
+              <div class="inner">
+                <div class="view-header" v-if="activeTemplate ? activeTemplate.animations : false">
+                  <div class="timeline-container">
+                    <span class="timeline-label">Timeline ({{ timestamp }})</span>
+                    <div class="btn btn-restart-animations" v-on:click="restartAnimations">
+                      <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                        	<g>
+                        		<polygon points="32,32 8,16 32,0"/>
+                        		<rect y="4" width="8" height="24"/>
+                        	</g>
+                        </svg>
+                      </div>
+                    </div>
+                    <input type="range" v-model="timestamp" min="0" v-bind:max="activeTemplate.video.duration" class="timeline-range" v-on:input="seek">
+
+                  </div>
+
+                </div>
+                <div class="view-main">
+                  <div class="data-input" ref="dataInputContainer" v-bind:class="{ show: (!isMobile || activeEditView == 0), 'show-full': isMobile }">
+                    <ul class="components-list">
+                      <li v-for="field in fieldComponents">
+                        <span class="description">
+                          {{ field.description }}
+                        </span>
+                        <div class="component">
+                          <component v-bind:is="field.component" v-bind="Object.assign(field.props, { $__key: field.key })" ref="fields"></component>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="preview" ref="previewContainer" v-bind:class="{ show: (!isMobile || activeEditView == 1) }">
+                    Preview
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+            <div class="view view-render">
+              <div class="inner">
+                <div class="view-content">
+                  <div class="view-header">
+
+                  </div>
+                  <div class="view-main">
+                    <div class="render-result" v-bind:class="{ show: results.length }">
+
+                    </div>
+                    <div v-if="!results.length" class="spinner-container">
+                      <div class="loading-spinner">
+                        <img src="data/resources/logo-new-spinner.svg" alt="#FFF" class="inner-image">
+                        <progress-circle v-bind:value="progress.progress || 0" radius="47.5"></progress-circle>
+                      </div>
+                      <div class="spinner-label" v-if="progress.description">
+                        ({{ progress.description }})
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="view view-settings">
+              <div class="inner">
+                <div class="content-settings" v-if="activeViewIndex == 3">
+                  <div class="title">
+                    <img src="data/resources/compass.svg" alt="Toolpic" class="emblem">
+                    <div class="law-text">
+                      © 2019 Maurice Conrad | MIT License
+                    </div>
+                  </div>
+                  <div class="disclaimer">
+
+                    Diese Software ist ein Tool von <strong>Fridays For Future Deutschland</strong>. Sie dient ausschließlich der internen Nutzung für Öffentlichkeits- sowie Social-Media-Arbeit der Ortsgruppen und Gremien von Fridays For Future sowie anderen Organisationen mit denen wir in Kontakt stehen.
+                    <br>
+                    <div class="impressum">
+                      <strong>Verantwortlich gemäß §5 TMG und § 55 Abs. 2 RStV:</strong>
+                      <br>
+                      Maurice Conrad
+                      <br>Kurt-Schumacher-Straße 18
+                      <br>55124 Mainz
+                      <br>
+                      <a href="mailto:conr.maur@googlemail.com">conr.maur@googlemail.com</a>
+                    </div>
+                  </div>
+                  <div class="more-info">
+                    <div class="info-text">
+                      <h3>Fragen, Feedback & Ideen?</h3>
+                      Dann schreib am besten Maurice über WhatsApp an: <a href="https://wa.me/+4917674932702" target="_blank">+49 176 74932702</a>
+                    </div>
+                    <div class="links">
+                      <a href="https://github.com/MauriceConrad/Toolpic" target="_blank">
+                        <div class="btn">
+                          <div class="icon" v-html="iconsAboutView[1]"></div>
+                          <span class="label">Toolpic on GitHub</span>
+                        </div>
+                      </a>
+                      <a href="https://twitter.com/Maurice_Conrad" target="_blank">
+                        <div class="btn">
+                          <div class="icon" v-html="iconsAboutView[0]"></div>
+                          <span class="label">Maurice Conrad on Twitter</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="settings">
+                    <h3>Für die krassen Kids</h3>
+                    <ul class="settings-list">
+                      <li class="setting">
+                        <div class="action">
+                          <input type="checkbox" v-model="experimental">
+                        </div>
+                        <span class="label">Experimental Mode</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar bar-bottom">
+        <div class="tab-group">
+          <ul>
+            <li v-for="tab in tabs" v-bind:class="{ active: tabs.indexOf(tab) == activeViewIndex }" v-on:click="selectTab">
+              <div class="icon" v-html="tab.icon"></div>
+              <span class="label">
+                {{ tab.label }}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="loading-view">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.1.2/dist/vue-awesome-swiper.js"></script>
+
+    <script src="lib/app.js?99" charset="utf-8" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+.btn-group {
+  font-size: 0;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 0;
+  background-color: #2f8247;
+  color: #2f8247;
+  font-weight: 300;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.btn-group .btn {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 4px 7px;
+}
+.btn-group .btn:first-child {
+
+}
+.btn-group .btn.btn-icon {
+  padding: 6px 14px;
+}
+.btn-group .btn + .btn {
+
+}
+.btn-group .btn.active {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+.btn-group .btn .icon {
+  width: 24px;
+  height: 24px;
+
+}
+.btn-group .btn .icon svg * {
+  fill: #fff;
+}
+.btn-group .btn.active .icon svg * {
+  fill: #fff;
+}
+@media screen and (max-width: 400px) {
+  .btn-group .btn {
+    font-size: .95rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .btn-group .btn {
+    font-size: 0.9rem;
+  }
+}
+
+
+@media screen and (max-width: 360px) {
+  .btn-group .btn.btn-icon {
+    padding: 4px 12px;
+  }
+  .btn-group .btn .icon {
+    width: 20px;
+    height: 20px;
+
+  }
+}
