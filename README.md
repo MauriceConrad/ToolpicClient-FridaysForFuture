@@ -16,7 +16,7 @@ Before you are able to work in detail with the client's configuration such as mo
 
 ## Project Structure
 
-![Dependency Graph](https://raw.githubusercontent.com/MauriceConrad/ToolpicCore/master/README.md)
+![Dependency Graph](https://raw.githubusercontent.com/MauriceConrad/ToolpicCore/master/docs/Dependency_Graph.svg)
 
 ## Install
 
