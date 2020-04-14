@@ -7,7 +7,7 @@ Default client implementation of Toolpic project developed for Fridays For Futur
 Before you are able to work in detail with the client's configuration such as modifying and creating templates on your own, please make sure that you're familiar with the following:
 
 * [Toolpic Core](https://github.com/MauriceConrad/ToolpicCore)
-* Toolpic Render (Coming soon)
+* [Toolpic Render](https://github.com/MauriceConrad/ToolpicRender)
 * [Webpack](https://webpack.js.org)
 * [Webpack: Authoring Libraries](https://webpack.js.org/guides/author-libraries/)
 * [VueJS](https://vuejs.org/v2/guide/)
