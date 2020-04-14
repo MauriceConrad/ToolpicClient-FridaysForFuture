@@ -31,8 +31,6 @@ npm run build
 
 **Important:** Template Components are described very detailed in [Toolpic Core Documentation](https://github.com/MauriceConrad/ToolpicCore). Yes, we know that they technically not really a part of `toolpic-core` but the way we've implemented them is the recommended way *how to use* `toolpic-core` and absolutely reproduceable for every use case. To get familiar with them, read the `toolpic-core` documentation.
 
-
-
 Templates are stored in `data/templates`. Each Template is a valid *VueComponent*. Even if each format such as **Instagram** (1200x1200) or **Twitter** (1200x675) is a standalone Template Component, they are grouped together in *Items* because different formats of the same SharePic/Video commonly would share their dependencies.
 
 In `data/templates/template.js` all templates / formats are stored and grouped into three levels:
