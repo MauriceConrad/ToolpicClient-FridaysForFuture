@@ -14,6 +14,10 @@ Before you are able to work in detail with the client's configuration such as mo
 * [Vue Components](https://v1.vuejs.org/guide/components.html)
 * [Vue Single File Components](https://vuejs.org/v2/guide/single-file-components.html)
 
+## Project Structure
+
+![Dependency Graph](https://dev.maurice-conrad.eu/ToolpicCore/docs/Dependency_Graph.svg)
+
 
 ## Install
 
@@ -30,7 +34,7 @@ npm run build
 
 ### Structure
 
-**Important:** Template Components are described very detailed in [Toolpic Core Documentation](https://github.com/MauriceConrad/ToolpicCore). Yes, we know that they technically not really a part of `toolpic-core` but the way we've implemented them is the recommended way *how to use* `toolpic-core` and absolutely reproduceable for every use case. To get familiar with them, read the `toolpic-core` documentation.
+**Important:** Template Components are described very detailed in [Toolpic Core Documentation](https://github.com/MauriceConrad/ToolpicCore). Yes, we know that they technically not really a part of `Toolpic Core` but the way we've implemented them is the recommended way *how to use* `Toolpic Core` and absolutely reproduceable for every use case. To get familiar with them, read the `Toolpic Core` documentation.
 
 Templates are stored in `data/templates`. Each Template is a valid *VueComponent*. Even if each format such as **Instagram** (1200x1200) or **Twitter** (1200x675) is a standalone Template Component, they are grouped together in *Items* because different formats of the same SharePic/Video commonly would share their dependencies.
 
