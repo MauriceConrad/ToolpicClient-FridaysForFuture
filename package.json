@@ -1,7 +1,7 @@
 {
   "name": "toolpicclient",
   "version": "1.0.0",
-  "description": "Toolpic client",
+  "description": "Default client implementation of Toolpic project developed for Fridays For Future",
   "main": "lib/app.js",
   "scripts": {
     "build": "rm -r lib & webpack",
@@ -10,7 +10,7 @@
   "keywords": [
     "toolpic",
     "client",
-    "firdays",
+    "fridays",
     "for",
     "future"
   ],
