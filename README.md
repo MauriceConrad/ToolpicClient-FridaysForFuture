@@ -14,6 +14,10 @@ Before you are able to work in detail with the client's configuration such as mo
 * [Vue Components](https://v1.vuejs.org/guide/components.html)
 * [Vue Single File Components](https://vuejs.org/v2/guide/single-file-components.html)
 
+## Project Structure
+
+![Dependency Graph](docs/Dependency_Graph.svg)
+
 ## Install
 
 ```bash
