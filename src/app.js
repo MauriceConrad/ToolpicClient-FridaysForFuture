@@ -290,7 +290,6 @@ const mySession = new Session();
         const { width, height, format, type, video } = this.activeTemplate.documents[this.activeDocIndex];
 
         this.results = [];
-        console.log(this.results);
 
         const configs = [
           {
@@ -302,12 +301,13 @@ const mySession = new Session();
             type: this.activeTemplate.documents[this.activeDocIndex].type,
             video: this.activeTemplate.documents[this.activeDocIndex].video,
             data: (() => {
-              const data = window.render.dataset;
+              const data = globalRender.dataset;
               delete data._asyncComputed;
               return data;
             })()
           }
         ].map(config => {
+
 
           return new Promise((resolve, reject) => {
             const process = new RenderProcess(config);

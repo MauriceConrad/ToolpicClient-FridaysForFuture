@@ -14,6 +14,7 @@ export default class RenderProcess extends EventEmitter {
 
     const { width, height, format, type, video, data, root, assets } = config;
 
+
     const endpoint = host + '/render';
 
     const sessionId = Date.now();
