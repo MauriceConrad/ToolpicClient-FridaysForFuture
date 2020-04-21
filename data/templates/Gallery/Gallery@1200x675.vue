@@ -8,7 +8,7 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 675" version="1.1">
     <g>
-      <g v-for="item in new GalleryMatrix(gallery.length, 9 / 16, 1, options[0], Number(options[1]))">
+      <g v-for="item in new GalleryMatrix(gallery.length, 9 / 16, 1, asymmetricDivisor, Number(alternateSymmetry))">
         <defs>
           <clipPath v-bind:id="'gallery-mask-' + item.__index">
             <rect v-bind:x="item.x * 1200" v-bind:y="item.y * 675" v-bind:width="item.width * 1200" v-bind:height="item.height * 675" style="fill: #000;"/>
@@ -40,46 +40,114 @@
 </template>
 
 <script type="text/javascript">
-  import { VueDirectives, VueComponents, VueHelpers } from 'toolpic';
+  import { SuperTemplate } from 'toolpic';
 
 
   export default {
     name: "date-2",
+    extends: SuperTemplate,
     data() {
       return {
         gallery: [
-          "data/templates/gallery/wir.jpg",
-          "data/templates/gallery/hoeren.jpg",
-          "data/templates/gallery/alle.jpg",
-          "data/templates/gallery/auf.jpg",
-          "data/templates/gallery/die.jpg",
-          "data/templates/gallery/wissenschaft.jpg",
-          "data/templates/gallery/und.jpg",
-          "data/templates/gallery/bleiben.jpg",
-          "data/templates/gallery/zuhause.jpg"
-
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/wir.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/hoeren.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/alle.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/auf.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/die.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/wissenschaft.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/und.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/bleiben.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/zuhause.jpg"
         ],
         pos: 0,
-        options: [true, false],
-        logo: "data/resources/logo.svg"
+        asymmetricDivisor: true,
+        alternateSymmetry: false,
+        logo: 'https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg'
       }
     },
-    methods: Object.assign({
-
-    }, VueHelpers),
-    directives: Object.assign({}, VueDirectives),
-    components: Object.assign({}, VueComponents)
+    methods: {}
   };
+  import { Text, Textarea, Select, ImageSelect, Toggle, Slider } from 'fields';
   export const fields = [
-
+    {
+      key: "pos",
+      description: "Image Position",
+      component: Slider,
+      props: {
+        min: -1,
+        max: 1,
+        step: 0.01
+      }
+    },
+    {
+      key: "gallery",
+      description: "Images",
+      component: ImageSelect,
+      props: {
+        width: 1200,
+        height: 1200,
+        convertToJPG: true,
+        max: 20,
+        sources: [
+          {
+            type: "FileUpload",
+            label: "Upload"
+          },
+          {
+            type: "ResourceSpace",
+            label: "FFF",
+            options: {
+              host: "bilder.fffutu.re"
+            }
+          },
+          {
+            type: "Pixabay",
+            label: "Pixabay"
+          }
+        ]
+      }
+    },
+    {
+      key: "asymmetricDivisor",
+      description: null,
+      component: Toggle,
+      props: {
+        description: "Asymmetrisches Divisorverfahren",
+        styleClass: 'mt-android'
+      }
+    },
+    {
+      key: "alternateSymmetry",
+      description: null,
+      component: Toggle,
+      props: {
+        description: "Alternative Symmetrie",
+        styleClass: 'mt-android'
+      }
+    }
   ];
   export const smartActions = [
-
+    {
+      name: "Asymmetrisches Divisorverfahren",
+      type: "Toggle",
+      key: "asymmetricDivisor",
+      properties: {
+        mode: "normal"
+      }
+    },
+    {
+      name: "Alternative Symmetrie",
+      type: "Toggle",
+      key: "alternateSymmetry",
+      properties: {
+        mode: "normal"
+      }
+    }
   ];
   export const type ="image";
   export const format = "jpg";
   export const alias = "Twitter";
   export const width = 1200;
-  export const height = 1200;
+  export const height = 675;
 
 </script>

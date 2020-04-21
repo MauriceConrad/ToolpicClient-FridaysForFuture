@@ -97,13 +97,14 @@
 <script type="text/javascript">
   import animejs from 'animejs';
 
-  import { VueDirectives, VueComponents, VueHelpers } from 'toolpic';
+  import { SuperTemplate } from 'toolpic';
 
   export default {
     name: "date-2",
+    extends: SuperTemplate,
     data() {
       return {
-        image: ['data/templates/Date2/bg.jpg'],
+        image: ['https://cdn.fridaysforfuture.io/toolpic/templates/Date/bg.jpg'],
         pos: 0,
         darken: false,
         showDate: true,
@@ -113,32 +114,24 @@
         locationdetail: 'Mainz',
         subtitle: 'Ideen tanken beim...',
         title: ['SOMMERKONGRESS'],
-        logo: "data/resources/logo.svg"
+        logo: 'https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg'
       }
     },
-    methods: Object.assign({
-      __animate() {
-        return [];
-        const instance1 = animejs({
-          targets: this.$refs.testElement1,
-          scale: 2,
-          opacity: 1,
-          duration: 1500,
-          autoplay: false,
-          easing: 'easeInOutQuad'
-        });
-
-        return [
-          instance1
-        ];
-      }
-    }, VueHelpers),
-    directives: Object.assign({}, VueDirectives),
-    components: Object.assign({}, VueComponents)
+    methods: {}
   };
 
-  import { Text, Textarea, Select, ImageSelect, Toggle } from 'fields';
+  import { Text, Textarea, Select, ImageSelect, Toggle, Slider } from 'fields';
   export const fields = [
+    {
+      key: "pos",
+      description: "Image Position",
+      component: Slider,
+      props: {
+        min: -1,
+        max: 1,
+        step: 0.01
+      }
+    },
     {
       key: "image",
       description: "Background Image",
@@ -190,12 +183,6 @@
       }
     },
     {
-      key: "date",
-      description: "Datum",
-      component: Text,
-      props: {}
-    },
-    {
       key: "title",
       description: "Title",
       component: Textarea,
@@ -204,18 +191,42 @@
       }
     },
     {
+      key: "date",
+      description: "Datum",
+      component: Text,
+      props: {}
+    },
+    {
+      key: "time",
+      description: "Uhrzeit",
+      component: Text,
+      props: {}
+    },
+    {
+      key: "location",
+      description: "Ort",
+      component: Text,
+      props: {}
+    },
+    {
+      key: "locationdetail",
+      description: "Ort Info",
+      component: Text,
+      props: {}
+    },
+    {
       key: "logo",
       description: "Logo",
       component: Select,
       props: {
         items: [
           {
-            render: "data/resources/logo.svg",
-            value: "data/resources/logo.svg"
+            render: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg",
+            value: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg"
           },
           {
-            render: "data/resources/logo-2.svg",
-            value: "data/resources/logo-2.svg"
+            render: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-og.svg",
+            value: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-og.svg"
           }
         ],
         upload: true

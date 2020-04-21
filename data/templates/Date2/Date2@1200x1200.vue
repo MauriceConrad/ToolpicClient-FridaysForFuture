@@ -112,7 +112,7 @@
     extends: SuperTemplate,
     data() {
       return {
-        image: ['https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/bg-Date2.jpg'],
+        image: ['https://cdn.fridaysforfuture.io/toolpic/templates/Date/bg.jpg'],
         pos: 0,
         darken: false,
         showDate: true,
@@ -122,24 +122,11 @@
         locationdetail: 'Mainz',
         subtitle: 'Ideen tanken beim...',
         title: ['SOMMERKONGRESS'],
-        logo: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo.svg"
+        logo: 'https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg'
       }
     },
     methods: {
-      __animate() {
-        return [];
-        const instance1 = animejs({
-          targets: this.$refs.testElement1,
-          opacity: 1,
-          duration: 1500,
-          autoplay: false,
-          easing: 'easeInOutQuad'
-        });
-
-        return [
-          instance1
-        ];
-      }
+      
     }
   };
 
@@ -207,12 +194,6 @@
       }
     },
     {
-      key: "date",
-      description: "Datum",
-      component: Text,
-      props: {}
-    },
-    {
       key: "title",
       description: "Title",
       component: Textarea,
@@ -221,18 +202,42 @@
       }
     },
     {
+      key: "date",
+      description: "Datum",
+      component: Text,
+      props: {}
+    },
+    {
+      key: "time",
+      description: "Uhrzeit",
+      component: Text,
+      props: {}
+    },
+    {
+      key: "location",
+      description: "Ort",
+      component: Text,
+      props: {}
+    },
+    {
+      key: "locationdetail",
+      description: "Ort Info",
+      component: Text,
+      props: {}
+    },
+    {
       key: "logo",
       description: "Logo",
       component: Select,
       props: {
         items: [
           {
-            render: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo.svg",
-            value: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo.svg"
+            render: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg",
+            value: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg"
           },
           {
-            render: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo-2.svg",
-            value: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo-2.svg"
+            render: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-og.svg",
+            value: "https://cdn.fridaysforfuture.io/toolpic/assets/logo-og.svg"
           }
         ],
         upload: true

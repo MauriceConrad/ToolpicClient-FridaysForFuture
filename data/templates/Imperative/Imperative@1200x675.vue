@@ -1,12 +1,7 @@
 <style scoped>
-  @font-face {
-    font-family: 'Jost-700';
-    src: url('../../fonts/Jost/Jost-600-Semi.ttf');
-  }
-  @font-face {
-    font-family: 'Jost-300';
-    src: url('../../fonts/Jost/Jost-300-Light.ttf');
-  }
+
+  @import "../../fonts/Jost/Jost.css";
+
   svg {
     max-width: 100%;
     max-height: 100%;
@@ -40,7 +35,7 @@
 
       <rect x="0" y="0" width="1200" height="1200" style="fill: #eeeeee;" />
 
-      <image v-scaleimage="pos" v-bind:xlink:href="image" x="0" y="0" height="675" width="1200" />
+      <image v-scaleimage="pos" v-bind:xlink:href="[image]" x="0" y="0" height="675" width="1200" />
 
       <g style="transform-origin: 600px 290px; transform: rotate(-4deg);">
         <MultiLine v-dynamic data-dynamic-origin="none" data-dynamic-width="1120" data-dynamic-height="350" style="transform-origin: 40px 50px;" x="40" y="50" relative="0 0" padding="10 20" v-bind:text="text" lineheight="1.05" background="#1DA64A" css="font-size: 150px; font-family: 'Jost'; font-weight: 600; fill: #fff;"></MultiLine>
@@ -54,7 +49,7 @@
         <MultiLine v-dynamic data-dynamic-origin="none" data-dynamic-width="700" data-dynamic-height="160" style="transform-origin: 30px 645px;" x="30" y="670" relative="0 1" padding="0" v-bind:text="description" lineheight="1.1" background="none" css="font-size: 80px; font-family: 'Jost'; font-weight: 400; fill: #fff;"></MultiLine>
       </g>
 
-      <image v-bind:xlink:href="typeof logo == 'object' ? logo.data : logo" x="1000" y="475" height="300" width="300" filter="url(#dropshadow)" />
+      <image v-bind:xlink:href="logo" x="1000" y="475" height="300" width="300" filter="url(#dropshadow)" />
 
 
     </g>
@@ -68,11 +63,12 @@
 <script type="text/javascript">
   import animejs from 'animejs';
 
-  import { VueDirectives, VueComponents, VueHelpers } from 'toolpic';
+  import { SuperTemplate } from 'toolpic';
 
 
   export default {
     name: "date-2",
+    extends: SuperTemplate,
     data() {
       return {
         image: 'https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/bg-Date2.jpg',
@@ -82,11 +78,65 @@
         logo: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo.svg"
       }
     },
-    methods: Object.assign({}, VueHelpers),
-    directives: Object.assign({}, VueDirectives),
-    components: Object.assign({}, VueComponents)
+    methods: {}
   };
-  export const fields = [];
+  import { Text, Textarea, Select, ImageSelect, Slider } from 'fields';
+  export const fields = [
+    {
+      key: "pos",
+      description: "Image Position",
+      component: Slider,
+      props: {
+        min: -1,
+        max: 1,
+        step: 0.01
+      }
+    },
+    {
+      key: "image",
+      description: "Background Image",
+      component: ImageSelect,
+      props: {
+        width: 1200,
+        height: 1200,
+        convertToJPG: true,
+        max: 1,
+        sources: [
+          {
+            type: "FileUpload",
+            label: "Upload"
+          },
+          {
+            type: "ResourceSpace",
+            label: "FFF",
+            options: {
+              host: "bilder.fffutu.re"
+            }
+          },
+          {
+            type: "Pixabay",
+            label: "Pixabay"
+          }
+        ]
+      }
+    },
+    {
+      key: "text",
+      description: "Title",
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
+    },
+    {
+      key: "description",
+      description: "Description",
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
+    }
+  ];
   export const type ="image";
   export const format = "jpg";
   export const smartActions = [];

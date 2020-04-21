@@ -9,6 +9,7 @@ export default function loadTemplate(template, docIndex, previewMain) {
   // Initalize the rendering component
   const render = new Toolpic(component);
 
+
   previewMain.append(render.context);
 
   return render;

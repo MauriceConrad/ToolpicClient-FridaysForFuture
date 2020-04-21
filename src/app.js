@@ -364,13 +364,13 @@ const mySession = new Session();
         const value = event.target.closest("select").value;
         const docIndex = Number(value);
 
-        const dataset = window.render.dataset;
+        const dataset = globalRender.dataset;
 
 
         this.applyInstance(this.activeTemplate, docIndex);
 
         // Apply old dataset
-        render.dataset = dataset;
+        globalRender.dataset = dataset;
       },
       selectTemplate(item, changeView = true, docIndex = 0) {
 
@@ -399,6 +399,7 @@ const mySession = new Session();
         }
 
         globalRender = loadTemplate(template, docIndex, this.$refs.previewContainer);
+        window.render = globalRender;
 
         const fields = template.documents[docIndex].fields;
 
@@ -406,12 +407,22 @@ const mySession = new Session();
 
 
         ToolpicHelpers.nextTick(() => {
+          let i = 0;
           for (let component of this.$refs.fields) {
+            const index = i;
             // Updating component's 'value' to the related value within the data controller using $__key as reference
             component.value = globalRender.data[component.$__key].__value;
             component.$on("update", (key, value) => {
               globalRender.data[key] = value;
+              if (this.fieldComponents[index].forceSVGRedraw) {
+                console.log(key);
+                globalRender.fixSVGIussues(key);
+              }
             });
+
+            i++;
+
+            //console.log(component);
           }
         });
 

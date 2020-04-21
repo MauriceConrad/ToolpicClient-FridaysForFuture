@@ -42,40 +42,47 @@
 </template>
 
 <script type="text/javascript">
-  import { VueDirectives, VueComponents, VueHelpers } from 'toolpic';
+  import { SuperTemplate } from 'toolpic';
 
 
   export default {
     name: "date-2",
+    extends: SuperTemplate,
     data() {
       return {
         gallery: [
-          "data/templates/gallery/wir.jpg",
-          "data/templates/gallery/hoeren.jpg",
-          "data/templates/gallery/alle.jpg",
-          "data/templates/gallery/auf.jpg",
-          "data/templates/gallery/die.jpg",
-          "data/templates/gallery/wissenschaft.jpg",
-          "data/templates/gallery/und.jpg",
-          "data/templates/gallery/bleiben.jpg",
-          "data/templates/gallery/zuhause.jpg"
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/wir.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/hoeren.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/alle.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/auf.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/die.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/wissenschaft.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/und.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/bleiben.jpg",
+          "https://cdn.fridaysforfuture.io/toolpic/templates/Gallery/zuhause.jpg"
         ],
         pos: 0,
         asymmetricDivisor: true,
         alternateSymmetry: false,
-        logo: "data/resources/logo.svg"
+        logo: 'https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg'
       }
     },
-    methods: Object.assign({
-
-    }, VueHelpers),
-    directives: Object.assign({}, VueDirectives),
-    components: Object.assign({}, VueComponents)
+    methods: {}
   };
 
-  import { Text, Textarea, Select, ImageSelect, Toggle } from 'fields';
+  import { Text, Textarea, Select, ImageSelect, Toggle, Slider } from 'fields';
 
   export const fields = [
+    {
+      key: "pos",
+      description: "Image Position",
+      component: Slider,
+      props: {
+        min: -1,
+        max: 1,
+        step: 0.01
+      }
+    },
     {
       key: "gallery",
       description: "Images",

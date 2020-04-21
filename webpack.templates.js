@@ -16,6 +16,24 @@ const bundles = new Map(
       './data/templates/Gallery/Gallery@1200x1200.vue',
       './data/templates/Gallery/Gallery@1200x675.vue'
     ]],
+    ['Info', [
+      './data/templates/Info/Info@1200x1200.vue',
+      './data/templates/Info/Info@1200x675.vue'
+    ]],
+    ['Logo', [
+      './data/templates/Logo/Logo.vue'
+    ]],
+    ['Pride', [
+      './data/templates/Pride/Pride@1200x1200.vue',
+      './data/templates/Pride/Pride@1200x675.vue'
+    ]],
+    ['Quote', [
+      './data/templates/Quote/Quote@1200x1200.vue',
+      './data/templates/Quote/Quote@1200x675.vue'
+    ]],
+    ['Thanks', [
+      './data/templates/Thanks/Thanks@1200x1200.vue'
+    ]],
     ['VideoTest', [
       './data/templates/VideoTest/VideoTest.vue',
     ]]
@@ -90,4 +108,4 @@ function packTemplates(targetDir) {
   return configs;
 }
 
-module.exports = packTemplates(path.resolve(__dirname, 'data', 'templates_compiled'));
+module.exports = packTemplates(path.resolve(__dirname, 'cdn', 'toolpic', 'templates_precompiled'));

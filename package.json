@@ -4,6 +4,7 @@
   "description": "Default client implementation of Toolpic project developed for Fridays For Future",
   "main": "lib/app.js",
   "scripts": {
+    "all": "rm -r lib & webpack & webpack --config webpack.templates.js",
     "build": "rm -r lib & webpack",
     "templates": "webpack --config webpack.templates.js"
   },
@@ -33,7 +34,7 @@
   "dependencies": {
     "animejs": "^3.2.0",
     "swiper": "^5.3.6",
-    "toolpic": "^0.5.2",
+    "toolpic": "^0.5.7",
     "vue-async-computed": "^3.1.2",
     "vue-awesome-swiper": "^4.0.7"
   }

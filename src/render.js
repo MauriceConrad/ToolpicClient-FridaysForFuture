@@ -1,10 +1,9 @@
 const host = [
-  'https://api.klimaliste.org',
   'http://localhost:443',
   'http://116.203.228.48:443',
   'https://api.fridaysforfuture.io',
   'http://192.168.178.72:443'
-][3];
+][2];
 
 import EventEmitter from './EventEmitter.js';
 

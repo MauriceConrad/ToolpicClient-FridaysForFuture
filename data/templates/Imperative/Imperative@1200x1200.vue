@@ -34,7 +34,7 @@
 
       <rect x="0" y="0" width="1200" height="1200" style="fill: #eeeeee;" />
 
-      <image v-scaleimage="pos" v-bind:xlink:href="image" x="0" y="0" height="1200" width="1200" />
+      <image v-scaleimage="pos" v-bind:xlink:href="[image]" x="0" y="0" height="1200" width="1200" />
 
       <g style="transform-origin: 600px 290px; transform: rotate(-4deg);">
         <MultiLine v-dynamic data-dynamic-origin="none" data-dynamic-width="1120" data-dynamic-height="500" style="transform-origin: 40px 50px;" x="40" y="50" relative="0 0" padding="10 20" v-bind:text="text" lineheight="1.05" background="#1DA64A" css="font-size: 150px; font-weight: 600; font-family: 'Jost'; fill: #fff;"></MultiLine>
@@ -56,24 +56,79 @@
 <script type="text/javascript">
   import animejs from 'animejs';
 
-  import { VueDirectives, VueComponents, VueHelpers } from 'toolpic';
+  import { SuperTemplate } from 'toolpic';
 
   export default {
     name: "imperative",
+    extends: SuperTemplate,
     data() {
       return {
-        image: 'https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/bg-Date2.jpg',
+        image: ['https://cdn.fridaysforfuture.io/toolpic/templates/Imperative/bg.jpg'],
         pos: 0,
         text: ["BUNDESTAG", "UMZINGELN!"],
         description: ["28.06 12:00 Uhr", "INVALIDENPARK"],
-        logo: "https://dev.maurice-conrad.eu/toolpic-cdn/shared_resources/logo.svg"
+        logo: 'https://cdn.fridaysforfuture.io/toolpic/assets/logo-classic.svg'
       }
     },
-    methods: Object.assign({}, VueHelpers),
-    directives: Object.assign({}, VueDirectives),
-    components: Object.assign({}, VueComponents),
+    methods: {}
   };
-  export const fields = [];
+  import { Text, Textarea, Select, ImageSelect, Slider } from 'fields';
+  export const fields = [
+    {
+      key: "pos",
+      description: "Image Position",
+      component: Slider,
+      props: {
+        min: -1,
+        max: 1,
+        step: 0.01
+      }
+    },
+    {
+      key: "image",
+      description: "Background Image",
+      component: ImageSelect,
+      props: {
+        width: 1200,
+        height: 1200,
+        convertToJPG: true,
+        max: 1,
+        sources: [
+          {
+            type: "FileUpload",
+            label: "Upload"
+          },
+          {
+            type: "ResourceSpace",
+            label: "FFF",
+            options: {
+              host: "bilder.fffutu.re"
+            }
+          },
+          {
+            type: "Pixabay",
+            label: "Pixabay"
+          }
+        ]
+      }
+    },
+    {
+      key: "text",
+      description: "Title",
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
+    },
+    {
+      key: "description",
+      description: "Description",
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
+    }
+  ];
   export const type ="image";
   export const format = "jpg";
   export const smartActions = [];

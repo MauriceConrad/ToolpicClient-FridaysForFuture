@@ -83,7 +83,7 @@
       <li v-for="(item, index) in items" class="select-item" v-bind:class="{ active: index === activeItemIndex }" @click="activeItemIndex = index">
         <img class="render-container" v-bind:src="item.render" alt="Item">
       </li>
-      <li class="btn-item" @click="uploadFile">
+      <li class="btn-item" @click="uploadFile" v-if="upload">
         <div class="btn" v-bind:class="{ 'has-bg': activeItemIndex === 'file' }">
           <div class="bg" v-bind:style="{ 'background-image': selectedFile ? `url('${ selectedFile.data }')` : 'none' }"></div>
           <div class="icon">
