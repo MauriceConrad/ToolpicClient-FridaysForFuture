@@ -6,7 +6,8 @@
 
 
 <style scoped>
-
+  @import "../../fonts/Jost/Jost.css";
+  
 </style>
 
 <script>
@@ -23,7 +24,7 @@
     },
     components: FFFCIComponents
   }
-
+  import { Text, Textarea, Select, ImageSelect, Slider } from 'fields';
   export const fields = [];
   export const type = "image";
   export const format = "jpg";

@@ -1,8 +1,8 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
     <defs>
-      <GradientEditorFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1"></GradientEditorFilter>
-      <GradientEditorFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="1.2"></GradientEditorFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1"></GradientMapFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="1.2"></GradientMapFilter>
     </defs>
 
     <defs>
@@ -44,7 +44,11 @@
         {{ info }}
       </text>
 
-      <image xlink:href="https://cdn.fridaysforfuture.io/toolpic/assets/logo-transparent.svg" width="200" height="200" x="880" y="10" />
+      <g style="transform: translate(420px, -420px);">
+        <g style="transform-origin: 540px 540px; transform: scale(0.185);">
+          <FFFLogo v-bind:og="og"></FFFLogo>
+        </g>
+      </g>
 
     </g>
   </svg>
@@ -57,6 +61,8 @@
 <script>
   import { SuperTemplate } from 'toolpic';
   import { FFFCIComponents } from '../../fff-ci-helpers/__index.js';
+
+  import FFFLogo from '../Logo/FFFLogo.vue';
 
   export default {
     name: "AnnouncementCelebrity",
@@ -71,13 +77,16 @@
         ],
         description: '*KLEINKÜNSTLER*',
         info: 'LIVE AM 24.04!',
+        og: '',
         theme: {
-          primary: ['#a4001d', '#FF002C'],
-          secondary: ['#128759', '#1BF3D3']
+          primary: ['#a40045', '#ff006b'],
+          secondary: ['#2e9575', '#43fec4']
         }
       }
     },
-    components: FFFCIComponents
+    components: Object.assign(FFFCIComponents, {
+      FFFLogo
+    })
   }
   /*
       NOTE
@@ -150,11 +159,28 @@
       description: "Info",
       component: Text,
       props: {}
+    },
+    {
+      key: "og",
+      description: "OG Label",
+      component: Text,
+      props: {}
     }
   ];
   export const type ="image";
   export const format = "jpg";
-  export const smartActions = [];
+  export const smartActions = [
+    {
+      name: "Position",
+      type: "Number",
+      key: "pos",
+      properties: {
+        min: 0,
+        max: 1,
+        step: 0.01
+      }
+    }
+  ];
   export const alias = "Instagram";
   export const width = 1080;
   export const height = 1080;

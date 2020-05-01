@@ -5,12 +5,31 @@ const mySession = new Session();
 import { Helpers as ToolpicHelpers } from 'toolpic'
 
 export default function handleRender(render, self) {
+  console.log("....");
+
+  render.listenForResources().then(() => {
+    
+
+    ToolpicHelpers.nextTick(() => {
+      render.Vue.$forceUpdate();
+      const maxAge = 250;
+      const start = Date.now();
+      const ticker = setInterval(() => {
+        render.Vue.$forceUpdate();
+        if (Date.now() - start >= maxAge) clearInterval(ticker);
+        //render.Vue.$forceUpdate();
+      }, 50);
+    });
+  });
   render.on("load", () => {
     try {
       this.timestamp = this.activeTemplate.video.duration;
       window.render.seekAnimations(Number(this.timestamp));
     }
     catch (e) {}
+
+    console.log("!!!!");
+    console.log(render);
 
     ToolpicHelpers.nextTick(() => {
       render.Vue.$forceUpdate();

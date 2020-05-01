@@ -21,7 +21,7 @@
 
 <template>
   <div class="wrapper">
-    <textarea name="Toolpic Textarea Field" @input="inputHandle" ref="input" v-bind:rows="this.rows === 'auto' ? this.rowsCount : this.rows"></textarea>
+    <textarea name="Toolpic Textarea Field" @input="inputHandle" ref="input" v-bind:rows="this.rows === 'auto' ? this.rowsCount : this.rows" wrap="hard"></textarea>
   </div>
 </template>
 

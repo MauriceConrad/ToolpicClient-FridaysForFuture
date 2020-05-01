@@ -206,7 +206,9 @@ html, body {
   height: 100%;
   flex: 1;
 }
-
+.view.view-edit .inner .view-main.has-timeline {
+  height: calc(100% - 67px);
+}
 .view.view-edit .inner .view-main > div {
   flex: 1;
   height: 100%;

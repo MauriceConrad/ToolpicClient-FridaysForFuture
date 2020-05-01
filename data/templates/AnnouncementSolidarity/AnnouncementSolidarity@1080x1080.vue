@@ -61,8 +61,8 @@
     </defs>
 
     <defs>
-      <GradientEditorFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1" brightness="1.4"></GradientEditorFilter>
-      <GradientEditorFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="0.925"></GradientEditorFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1" brightness="1.4"></GradientMapFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="0.925"></GradientMapFilter>
     </defs>
 
     <g class="main" clip-path="url(#bounding)">
@@ -75,7 +75,7 @@
       </g>
 
       <g>
-        <FFFTitleShader v-bind:fill="theme.secondary" opacity="0.85" dynamic="1000 400" origin="540px 330px" offset="-8 -8" stroke="#fff" stroke-width="4">
+        <FFFTitleShader v-bind:fill="theme.secondary" opacity="0.85" dynamic="1000 600" origin="540px 330px" offset="-8 -8" stroke="#fff" stroke-width="4">
           <template>
             <MultiLine x="540" y="250" relative="0.5 0" padding="10 20" align="center" v-bind:text="title" lineheight="1.05" background="none" css="font-size: 150px; font-weight: 900; font-family: 'Jost';"></MultiLine>
           </template>
@@ -104,7 +104,13 @@
 
 
 
-      <image xlink:href="https://cdn.fridaysforfuture.io/toolpic/assets/logo-transparent.svg" width="170" height="170" x="910" y="900" />
+      <g style="transform: translate(457px, 445px);">
+        <g style="transform-origin: 540px 540px; transform: scale(0.158);">
+          <FFFLogo v-bind:og="og"></FFFLogo>
+        </g>
+      </g>
+
+
 
     </g>
 
@@ -116,6 +122,8 @@
 import { SuperTemplate } from 'toolpic';
 
 import { FFFCIComponents } from '../../fff-ci-helpers/__index.js';
+
+import FFFLogo from '../Logo/FFFLogo.vue';
 
 export default {
   name: "AnnouncementStrike",
@@ -129,9 +137,10 @@ export default {
       date: '08.03.',
       location: 'MAINZ',
       locationdetail: 'HAUPTBAHNHOF',
+      og: '',
       theme: {
-        primary: ['#11532c', '#00d6b6'],
-        secondary: ['#830022', '#f70018']
+        primary: ['#226c55', '#3dcc9f'],
+        secondary: ['#a40045', '#ff006b']
       }
     }
   },
@@ -140,17 +149,6 @@ export default {
 };
 import { Text, Textarea, Select, ImageSelect, Slider } from 'fields';
 export const fields = [
-  /*
-      NOTE
-
-      Pastel:
-        Primary: #11532c -> #00d6b6
-        Secondary: #128759 -> #1BF3D3
-
-      Magenta:
-        Primary: #610011 -> #FF002C
-        Secondary: #a4001d -> #FF002C
-  */
   {
     key: "theme",
     description: "Theme",
@@ -161,16 +159,16 @@ export const fields = [
         {
           render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMzZGNjOWY7IiAvPgo8L3N2Zz4=",
           value: {
-            primary: ['#11532c', '#00d6b6'],
-            secondary: ['#a4001d', '#FF002C']
+            primary: ['#226c55', '#3dcc9f'],
+            secondary: ['#a40045', '#ff006b']
           }
         },
         // Megenta : Pastel
         {
           render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICNGRjAwNUM7IiAvPgo8L3N2Zz4=",
           value: {
-            primary: ['#610011', '#FF002C'],
-            secondary: ['#128759', '#1BF3D3']
+            primary: ['#830037', '#ff006b'],
+            secondary: ['#2bac84', '#41d1a4']
           }
         }
       ]
@@ -249,11 +247,28 @@ export const fields = [
     description: "Location Detail",
     component: Text,
     props: {}
+  },
+  {
+    key: "og",
+    description: "OG Label",
+    component: Text,
+    props: {}
   }
 ];
 export const type ="image";
 export const format = "jpg";
-export const smartActions = [];
+export const smartActions = [
+  {
+    name: "Position",
+    type: "Number",
+    key: "pos",
+    properties: {
+      min: 0,
+      max: 1,
+      step: 0.01
+    }
+  }
+];
 export const alias = "Instagram";
 export const width = 1080;
 export const height = 1080;

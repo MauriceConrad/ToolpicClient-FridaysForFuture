@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Toolpic Client</title>
+    <title>Fridays For Future Toolpic</title>
+
 
     <link rel="apple-touch-icon" sizes="180x180" href="icons/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/ico/favicon-32x32.png">
@@ -15,6 +16,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Toolpic">
+
+    <meta property="og:title" content="FFF Toolpic" />
+    <meta property="og:description" content="Fridays For Future Toolpic: Create SharePics and more stuff." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://toolpic.fridaysforfuture.io" />
 
 
     <!-- iPhone Xs Max (1242px x 2688px) -->
@@ -130,7 +136,7 @@
             </div>
             <div class="view view-edit">
               <div class="inner">
-                <div class="view-header" v-if="activeTemplate ? activeTemplate.animations : false">
+                <div class="view-header" v-if="activeRender && activeRender.animations">
                   <div class="timeline-container">
                     <span class="timeline-label">Timeline ({{ timestamp }})</span>
                     <div class="btn btn-restart-animations" v-on:click="restartAnimations">
@@ -143,12 +149,12 @@
                         </svg>
                       </div>
                     </div>
-                    <input type="range" v-model="timestamp" min="0" v-bind:max="activeTemplate.video.duration" class="timeline-range" v-on:input="seek">
+                    <input type="range" v-model="timestamp" min="0" v-bind:max="activeTemplate.documents[activeDocIndex].video.duration" class="timeline-range" v-on:input="seek">
 
                   </div>
 
                 </div>
-                <div class="view-main">
+                <div class="view-main" v-bind:class="{ 'has-timeline': activeRender && activeRender.animations }">
                   <div class="data-input" ref="dataInputContainer" v-bind:class="{ show: (!isMobile || activeEditView == 0), 'show-full': isMobile }">
                     <ul class="components-list">
                       <li v-for="field in fieldComponents">
@@ -199,12 +205,20 @@
                   <div class="title">
                     <img src="data/resources/compass.svg" alt="Toolpic" class="emblem">
                     <div class="law-text">
-                      © 2019 Maurice Conrad | MIT License
+                      © 2020 Maurice Conrad
+                      <br>
+                      <a href="https://github.com/MauriceConrad/ToolpicClient-FridaysForFuture/blob/master/LICENSE" target="_blank">
+                        © Non-Profit Open-Source-License
+                      </a>
                     </div>
                   </div>
                   <div class="disclaimer">
 
                     Diese Software ist ein Tool von <strong>Fridays For Future Deutschland</strong>. Sie dient ausschließlich der internen Nutzung für Öffentlichkeits- sowie Social-Media-Arbeit der Ortsgruppen und Gremien von Fridays For Future sowie anderen Organisationen mit denen wir in Kontakt stehen.
+                    <br><br>
+                    <strong>Haftungsausschluss</strong>
+                    <br>
+                    Die Betreiber dieses Services haften nicht für Urheberrechtsverletzungen und jede Form von strafbaren Inhalten, die mittels dieser Software von Einzelpersonen begangen werden.
                     <br>
                     <div class="impressum">
                       <strong>Verantwortlich gemäß §5 TMG und § 55 Abs. 2 RStV:</strong>

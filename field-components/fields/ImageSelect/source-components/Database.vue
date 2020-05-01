@@ -1,7 +1,7 @@
 <style scoped>
   .source-database-component {
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     background-color: #0f0f0f;
     border: 1px solid #050505;
     border-radius: 5px;
@@ -9,6 +9,9 @@
     padding: 8px;
     overflow: scroll;
     position: relative;
+    max-height: 100% !important;
+
+    max-height: calc(100vh - 220px) !important;
   }
   .source-database-component::-webkit-scrollbar {
     display: none;
@@ -21,6 +24,7 @@
     margin: 0;
     padding: 0;
     font-size: 0;
+    text-align: center;
   }
   .images-view li {
     display: inline-block;
@@ -31,56 +35,25 @@
   }
 
   .images-view li {
-    width: 12.5%;
+    width: 200px;
     height: 135px;
-  }
-  @media screen and (max-width: 1370px) {
-    .images-view li {
-      width: 14.285%;
-      height: 125px;
-    }
-  }
-  @media screen and (max-width: 1250px) {
-    .images-view li {
-      height: 115px;
-    }
-  }
-  @media screen and (max-width: 1150px) {
-    .images-view li {
-      height: 105px;
-    }
-  }
-  @media screen and (max-width: 1085px) {
-    .images-view li {
-      width: 16.666%;
-      height: 102px;
-    }
   }
   @media screen and (max-width: 650px) {
     .images-view li {
-      width: 33.333%;
-      height: 121px;
+      width: 120px;
+      height: 81px;
     }
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 420px) {
     .images-view li {
-      width: 50%;
-      height: 140px;
+      width: 110px;
+      height: 74px;
     }
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 380px) {
     .images-view li {
-      height: 120px;
-    }
-  }
-  @media screen and (max-width: 385px) {
-    .images-view li {
-      height: 100px;
-    }
-  }
-  @media screen and (max-width: 340px) {
-    .images-view li {
-      height: 80px;
+      width: 97px;
+      height: 74px;
     }
   }
   .images-view li > div {
@@ -234,6 +207,23 @@
     font-size: 2em;
     letter-spacing: 0.5px;
   }
+  .images-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: center;
+  }
+  .images-list li {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    font-size: 1rem;
+  }
+  .images-list li .preview {
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 
@@ -252,6 +242,11 @@
 
       </div>-->
     </div>
+    <!--<ul class="images-list">
+      <li v-for="image in results">
+        <div class="preview" v-bind:style="{ 'background-image': `url('${ image.preview }')` }"></div>
+      </li>
+    </ul>-->
     <ul class="images-view" v-else>
       <li v-for="(image, index) in results" @click="selectImage(index)">
         <div class="preview" v-bind:style="{ 'background-image': `url('${ image.preview }')` }"></div>
@@ -299,9 +294,24 @@
         this.searchesCount++;
         this.results = [];
         this.loading = true;
+
+        console.log(this.loading);
+
         await Services[this.sourceName](query, this.width, this.height, results => {
           this.loading = false;
           this.results = this.results.concat(results);
+          /*this.results = this.results.concat([
+            {
+              name: "frauen, sexy, sinnlich",
+              preview: "https://cdn.pixabay.com/photo/2020/04/04/11/39/women-5001930_150.jpg",
+              src: "https://pixabay.com/get/53e0d5424351ac14f6da8c7dda79367b1738d7e35b586c48702773d69f45cc50b9_1280.jpg"
+            },
+            {
+              name: "frauen, sexy, sinnlich",
+              preview: "https://cdn.pixabay.com/photo/2020/04/04/11/39/women-5001930_150.jpg",
+              src: "https://pixabay.com/get/53e0d5424351ac14f6da8c7dda79367b1738d7e35b586c48702773d69f45cc50b9_1280.jpg"
+            }
+          ]);*/
         });
       },
       async selectImage(index) {

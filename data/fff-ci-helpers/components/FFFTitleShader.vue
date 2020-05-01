@@ -8,7 +8,7 @@
     <g v-bind:mask="'url(#' + maskId + ')'">
       <slot name="shader"></slot>
     </g>
-    <g v-bind:style="{ 'transform-origin': origin }" v-dynamic v-bind:data-dynamic-width="dyn[0]" v-bind:data-dynamic-height="dyn[1]">
+    <g v-if="stroke && strokeWidth && offset" v-bind:style="{ 'transform-origin': origin }" v-dynamic v-bind:data-dynamic-width="dyn[0]" v-bind:data-dynamic-height="dyn[1]">
       <g class="shader-stroked" v-bind:style="{ stroke, 'stroke-width': strokeWidth + 'px', transform: 'translate(' + offsetTransform.map(str => str + 'px').join(',') + ')' }">
         <slot></slot>
       </g>
@@ -47,6 +47,9 @@
         return 'fff-shader-mask-' + generateId(10);
       },
       dyn() {
+        if (!this.dynamic) {
+          return [null, null];
+        }
         return this.dynamic.split(' ').map(Number);
       },
       offsetTransform() {

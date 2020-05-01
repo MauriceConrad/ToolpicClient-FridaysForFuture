@@ -6,7 +6,8 @@
   "scripts": {
     "all": "rm -r lib & webpack & webpack --config webpack.templates.js",
     "build": "rm -r lib & webpack",
-    "templates": "webpack --config webpack.templates.js"
+    "templates": "node webpack.templates.js",
+    "all-templates": "node webpack.templates.js Date2 Imperative Info Pride Quote Thanks AnnouncementStrike AnnouncementTime AnnouncementSolidarity CountdownStrike AnnouncementCelebrity MapDemoRoute EventMeetingLocation ImportantMessageLong ImportantMessageIcon ThanksMessage Support SupportCampaign SupportCampaignSimple HelpUs WantedSign MapEventLocation PublicLeisureEvent GeneralDateAnnouncement OpenInternalEvent CalendarApplication AnnouncementSingleSpeaker AnnouncementSpeakers WeekCalendar StatementPlain QuoteActivist NewsSimple FactSimple Gallery InfoPicture InfoPictureDetail FactText FactCheckDual FactCheckList Slides Logo"
   },
   "keywords": [
     "toolpic",
@@ -33,8 +34,10 @@
   },
   "dependencies": {
     "animejs": "^3.2.0",
+    "mapbox-gl": "^1.9.1",
+    "simplify-js": "^1.2.4",
     "swiper": "^5.3.6",
-    "toolpic": "^0.5.7",
+    "toolpic": "^0.6.0",
     "vue-async-computed": "^3.1.2",
     "vue-awesome-swiper": "^4.0.7"
   }

@@ -48,7 +48,7 @@
     // Just use 'value' as SET ONLY
   */
 
-  import { openFile } from '../../__helpers';
+  import { openFile, generateId } from '../../__helpers';
 
   import SuperComponent from '../../SuperComponent';
 
@@ -65,7 +65,7 @@
       return {
         // 'value' is already here because of extended SuperComponent
         // Just use 'value' as SET ONLY
-        randomId: "toolpic-toggle-" + Date.now()
+        randomId: "toolpic-toggle-" + Date.now() + generateId(10)
       }
     },
     methods: {

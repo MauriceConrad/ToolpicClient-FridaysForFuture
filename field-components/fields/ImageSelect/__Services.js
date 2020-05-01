@@ -7,8 +7,12 @@ export async function ResourceSpace(query, width, height, callback) {
   const urlQuery = "user=" + user + "&function=search_get_previews&param1=" + encodeURIComponent(query) + "&param8=thm,scr,pre,col,fhd&param5=500";
 
   const sign = Sha256.hash(privateKey + urlQuery, true);
-  const url = "https://bilder.fffutu.re/api/?" + urlQuery + "&sign=" + sign;
-  const response = await fetch(url);
+  const url = "https://toolpic.fridaysforfuture.io/bilder4future?" + urlQuery + "&sign=" + sign;
+  const response = await fetch(url, {
+    method: 'GET'
+    //mode: 'no-cors'
+  });
+
   const results = await response.json();
 
   callback(results.map(entry => {
@@ -72,11 +76,19 @@ export async function Pexels(query, width, height, callback) {
 export async function Pixabay(query, width, height, callback) {
   const apiKey = "15279689-2d59e718147678953b72b30d3";
 
+
+
   const perPage = 200;
   const maxRequest = 500;
   const requestsAmount = new Array(Math.ceil(maxRequest / perPage)).fill(true).map((value, index) => {
     return index < Math.trunc(maxRequest / perPage) ? perPage : (maxRequest % perPage);
   });
+
+  async function request(count, index) {
+    const url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + query.replace(/\s/g, "+") + '&lang=de&image_type=photo&per_page=' + perPage + '&page=' + (index + 1);
+    const response = await fetch(url);
+    return await response.json();
+  }
 
   for (let i = 0; i < requestsAmount.length; i++) {
     const count = requestsAmount[i];
@@ -88,13 +100,13 @@ export async function Pixabay(query, width, height, callback) {
         src: entry.largeImageURL
       };
     });
+
     callback(results);
+    await new Promise((resolve, reject) => {
+      setTimeout(resolve, 50);
+    });
   }
 
 
-  async function request(count, index) {
-    const url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + query.replace(/\s/g, "+") + '&lang=de&image_type=photo&per_page=' + 200 + '&page=' + (index + 1);
-    const response = await fetch(url);
-    return await response.json();
-  }
+
 }

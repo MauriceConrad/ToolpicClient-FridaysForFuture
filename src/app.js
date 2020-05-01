@@ -124,6 +124,14 @@ const mySession = new Session();
         this.isMobile = this.checkMobile();
       });
       this.isMobile = this.checkMobile();
+
+      Object.defineProperty(this, 'activeRender', {
+        get() {
+          return globalRender;
+        }
+      });
+
+
     },
     updated() {
       setTimeout(function() {
@@ -351,7 +359,7 @@ const mySession = new Session();
           this.timestamp = progress;
           window.render.seekAnimations(this.timestamp);
 
-          if (progress < this.activeTemplate.video.duration) {
+          if (progress < this.activeTemplate.documents[this.activeDocIndex].video.duration) {
             window.requestAnimationFrame(step);
           }
         }
@@ -384,6 +392,7 @@ const mySession = new Session();
 
           this.activeDocIndex = docIndex;
 
+
           this.activeTemplate = item;
 
           this.applyInstance(this.activeTemplate, docIndex);
@@ -412,23 +421,24 @@ const mySession = new Session();
             const index = i;
             // Updating component's 'value' to the related value within the data controller using $__key as reference
             component.value = globalRender.data[component.$__key].__value;
+            component.$emit("set", globalRender.data[component.$__key].__value);
             component.$on("update", (key, value) => {
               globalRender.data[key] = value;
               if (this.fieldComponents[index].forceSVGRedraw) {
-                console.log(key);
                 globalRender.fixSVGIussues(key);
+
               }
             });
 
             i++;
-
-            //console.log(component);
           }
         });
 
         this.__smartInstance.update(template.documents[docIndex].smartActions);
 
         handleRender(globalRender, this);
+
+
 
         return globalRender;
       },
@@ -461,11 +471,13 @@ const mySession = new Session();
         localStorage.setItem('experimentalMode', newValue);
       },
       activeEditView() {
-        if (render) {
-          render.Vue.$forceUpdate();
+        console.log("Edit View changed!");
+        if (globalRender) {
+          console.log("Reupdate data!");
+          globalRender.Vue.$forceUpdate();
           setTimeout(() => {
-            for (let key in render.dataset) {
-              if (render.dataset.hasOwnProperty(key)) {
+            for (let key in globalRender.dataset) {
+              if (globalRender.dataset.hasOwnProperty(key)) {
                 //console.log(key);
 
                 //const val = render.data[key].value;

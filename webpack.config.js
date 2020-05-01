@@ -59,7 +59,7 @@ const config = {
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
+      maxChunks: 50
     }),
     // make sure to include the plugin!
     new VueLoaderPlugin()
