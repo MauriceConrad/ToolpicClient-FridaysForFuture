@@ -1,8 +1,8 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
     <defs>
-      <GradientMapFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1"></GradientMapFilter>
-      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="1.2"></GradientMapFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
     </defs>
 
     <defs>
@@ -12,40 +12,33 @@
     </defs>
 
     <g clip-path="url(#bounding)">
-      <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" />
-      <rect x="0" y="0" width="1080" height="1080" style="fill: #20175A; opacity: 0.5;"/>
+      <g filter="url(#FFFVerlaufsumsetzungPrimary)">
+        <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" />
+      </g>
 
-      <FFFTitleShader v-bind:fill="theme.secondary" opacity="0.85" dynamic="600 400" origin="1040px 850px" offset="-8 -8" stroke="#fff" stroke-width="4">
+
+
+      <rect x="0" y="0" width="1080" height="1080" style="fill: #20175A; opacity: 0;"/>
+
+      <FFFTitleShader dynamic="960 350" origin="50px 50px" offset="-8 -8" stroke="#fff" stroke-width="2.5">
         <template>
-          <MultiLine x="1040" y="850" relative="1 1" padding="0" align="right" v-bind:text="name" lineheight="1.05" background="none" css="font-size: 110px; font-weight: 900; font-family: 'Jost';"></MultiLine>
+          <MultiLine x="50" y="50" relative="0 0" padding="0" align="left" v-bind:text="name" lineheight="1.05" background="none" css="font-size: 110px; font-weight: 900; font-family: 'Jost';"></MultiLine>
         </template>
-        <template v-slot:shader>
-          <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungPrimary)" />
-        </template>
-      </FFFTitleShader>
-
-      <FFFText
-                x="1040"
-                y="870"
-                relative="1 0"
-                lineheight="1.1"
-                align="right"
-                dynamic="450 100"
-                highlight-padding="0 3 0 18"
-                v-bind:text="[description]"
-                css="font-size: 50px; font-family: 'Jost'; font-weight: 500; fill: #fff;">
         <template v-slot:shader>
           <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungSecondary)" />
         </template>
-      </FFFText>
+      </FFFTitleShader>
 
+      <Dynamic width="960" height="300" origin="0 0">
+        <MultiLine x="50" y="350" relative="0 0" padding="0" v-bind:text="info" align="left" lineheight="1.1" background="none" css="font-size: 80px; font-weight: 600; font-family: 'Jost'; fill: #fff;"></MultiLine>
+      </Dynamic>
 
-      <text x="1040" y="1030" style="text-anchor: end; alignment-baseline: baseline; font-style: italic; font-size: 50px; font-family: 'Jost'; font-weight: 300; fill: #fff;">
-        {{ info }}
-      </text>
+      <Dynamic width="800" height="300" origin="0 0.9">
+        <MultiLine x="50" y="1050" relative="0 1" padding="0" v-bind:text="description" align="left" lineheight="1.1" background="none" css="font-size: 80px; font-weight: 800; font-family: 'Jost'; fill: none; stroke: #fff; stroke-width: 2px;"></MultiLine>
+      </Dynamic>
 
-      <g style="transform: translate(420px, -420px);">
-        <g style="transform-origin: 540px 540px; transform: scale(0.185);">
+      <g style="transform: translate(440px, 440px);">
+        <g style="transform-origin: 540px 540px; transform: scale(0.17);">
           <FFFLogo v-bind:og="og"></FFFLogo>
         </g>
       </g>
@@ -75,12 +68,18 @@
           'MARC-UWE',
           'KLING'
         ],
-        description: '*KLEINKÜNSTLER*',
-        info: 'LIVE AM 24.04!',
+        description: [
+          'KLEIN-',
+          'KÜNSTLER'
+        ],
+        info: [
+          'LIVE AM',
+          '24.04.'
+        ],
         og: '',
         theme: {
-          primary: ['#a40045', '#ff006b'],
-          secondary: ['#2e9575', '#43fec4']
+          primary: ['#20175A', '#7D93F8'],
+          secondary: ['#a40045', '#ff006b']
         }
       }
     },
@@ -102,6 +101,37 @@
   import { Text, Textarea, Select, ImageSelect, Slider } from 'fields';
 
   export const fields = [
+    {
+      key: "theme",
+      description: "Theme",
+      component: Select,
+      props: {
+        items: [
+          {
+            render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMyMDE3NUE7IiAvPgo8L3N2Zz4=",
+            value: {
+              primary: ['#20175A', '#7D93F8'],
+              secondary: ['#a40045', '#ff006b']
+            }
+          },
+          // Violett : Magenta : Pastel
+          {
+            render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICNGRjAwNUM7IiAvPgo8L3N2Zz4=",
+            value: {
+              primary: ['#830037', '#ff006b'],
+              secondary: ['#2e9575', '#43fec4']
+            }
+          },
+          {
+            render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMzZGNjOWY7IiAvPgo8L3N2Zz4=",
+            value: {
+              primary: ['#226c55', '#3dcc9f'],
+              secondary: ['#a40045', '#ff006b']
+            }
+          }
+        ]
+      }
+    },
     {
       key: "pos",
       description: "Background Position",
@@ -151,14 +181,18 @@
     {
       key: "description",
       description: "Description",
-      component: Text,
-      props: {}
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
     },
     {
       key: "info",
       description: "Info",
-      component: Text,
-      props: {}
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
     },
     {
       key: "og",

@@ -1,6 +1,10 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
-    <image x="0" y="0" width="1080" height="1080" v-bind:href="url" />
+    <defs>
+      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.mapPrimray.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
+    </defs>
+
+    <image x="0" y="0" width="1080" height="1080" v-bind:href="url" filter="url(#FFFVerlaufsumsetzungPrimary)" />
 
     <g>
       <circle v-for="point in route.points" r="5" v-bind:cx="lng(point[0], mapMeta, 1080)" v-bind:cy="lat(point[1], mapMeta, 1080)" />
@@ -206,6 +210,7 @@
         og: '',
         theme: {
           mapStyle: 'maurice-conrad/ck92zkw9h2dt71ip90h9hbz1u',
+          mapPrimray: ['#20175A', '#7D93F8'],
           primary: '#FF005C',
           secondary: '#3dcc9f'
         }

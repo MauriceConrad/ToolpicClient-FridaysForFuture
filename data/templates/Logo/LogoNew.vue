@@ -59,7 +59,7 @@
             value: {
               primary: '#1B7340',
               secondary: '#000',
-              secondary2: '#155d33',
+              secondary2: '#111',
               secondary3: '#90D3ED'
             }
           },
@@ -68,7 +68,7 @@
             value: {
               primary: '#1DA64A',
               secondary: '#000',
-              secondary2: '#1B7340',
+              secondary2: '#111',
               secondary3: '#fff'
             }
           },

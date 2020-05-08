@@ -86,7 +86,7 @@
   import { SuperTemplate } from 'toolpic';
 
   export default {
-    name: "Thanks",
+    name: "ClassicThanks",
     extends: SuperTemplate,
     data() {
       return {

@@ -7,7 +7,7 @@
     "all": "rm -r lib & webpack & webpack --config webpack.templates.js",
     "build": "rm -r lib & webpack",
     "templates": "node webpack.templates.js",
-    "all-templates": "node webpack.templates.js Date2 Imperative Info Pride Quote Thanks AnnouncementStrike AnnouncementTime AnnouncementSolidarity CountdownStrike AnnouncementCelebrity MapDemoRoute EventMeetingLocation ImportantMessageLong ImportantMessageIcon ThanksMessage Support SupportCampaign SupportCampaignSimple HelpUs WantedSign MapEventLocation PublicLeisureEvent GeneralDateAnnouncement OpenInternalEvent CalendarApplication AnnouncementSingleSpeaker AnnouncementSpeakers WeekCalendar StatementPlain QuoteActivist NewsSimple FactSimple Gallery InfoPicture InfoPictureDetail FactText FactCheckDual FactCheckList Slides Logo"
+    "all-templates": "node webpack.templates.js Date2 Imperative Info Pride Quote Thanks ClassicMap ClassicInfluence AnnouncementStrike AnnouncementTime AnnouncementSolidarity CountdownStrike AnnouncementCelebrity MapDemoRoute EventMeetingLocation ImportantMessageLong ImportantMessageIcon ThanksMessage Support SupportCampaign SupportCampaignSimple HelpUs WantedSign MapEventLocation PublicLeisureEvent GeneralDateAnnouncement OpenInternalEvent CalendarApplication AnnouncementSingleSpeaker AnnouncementSpeakers WeekCalendar StatementPlain QuoteActivist NewsSimple FactSimple Gallery InfoPicture InfoPictureDetail FactText FactCheckDual FactCheckList Slides Logo"
   },
   "keywords": [
     "toolpic",

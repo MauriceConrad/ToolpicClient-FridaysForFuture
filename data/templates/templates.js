@@ -618,7 +618,7 @@ export default [
     name: "FFF Classic",
     items: [
       {
-        name: "Date",
+        name: "Date2",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/Date/preview.jpg",
         documents: [
           import('./Date2/Date2@1200x1200.vue'),
@@ -626,12 +626,12 @@ export default [
         ],
         documentsCompiled: [
           {
-            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Imperative/Imperative@1200x1200.vue.js",
-            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Imperative"
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Date2/Date2@1200x1200.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Date2"
           },
           {
-            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Imperative/Imperative@1200x675.vue.js",
-            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Imperative"
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Date2/Date2@1200x675.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Date2"
           }
         ]
       },
@@ -718,6 +718,48 @@ export default [
           {
             root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Thanks/Thanks@1200x1200.vue.js",
             assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Thanks"
+          }
+        ]
+      },
+      {
+        name: "Map",
+        preview: "https://cdn.fridaysforfuture.io/toolpic/templates/ClassicMap/preview.jpg",
+        documents: [
+          import('./ClassicMap/ClassicMap@1200x1200.vue'),
+          //import('./Thanks/Thanks@1200x675.vue')
+        ],
+        documentsCompiled: [
+          {
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/ClassicMap/ClassicMap@1200x1200.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/ClassicMap"
+          }
+        ]
+      },
+      {
+        name: "Influence",
+        preview: "https://cdn.fridaysforfuture.io/toolpic/templates/ClassicInfluence/preview.jpg",
+        documents: [
+          import('./ClassicInfluence/ClassicInfluence@1200x1200.vue'),
+          //import('./Thanks/Thanks@1200x675.vue')
+        ],
+        documentsCompiled: [
+          {
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/ClassicInfluence/ClassicInfluence@1200x1200.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/ClassicInfluence"
+          }
+        ]
+      },
+      {
+        name: "Sentence",
+        preview: "https://cdn.fridaysforfuture.io/toolpic/templates/ClassicSentence/preview.jpg",
+        documents: [
+          import('./ClassicSentence/ClassicSentence@1200x1200.vue'),
+          //import('./Thanks/Thanks@1200x675.vue')
+        ],
+        documentsCompiled: [
+          {
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/ClassicSentence/ClassicSentence@1200x1200.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/ClassicSentence"
           }
         ]
       }

@@ -29,6 +29,15 @@ const bundles = new Map([
   ['Thanks', [
     './data/templates/Thanks/Thanks@1200x1200.vue'
   ]],
+  ['ClassicMap', [
+    './data/templates/ClassicMap/ClassicMap@1200x1200.vue'
+  ]],
+  ['ClassicInfluence', [
+    './data/templates/ClassicInfluence/ClassicInfluence@1200x1200.vue'
+  ]],
+  ['ClassicSentence', [
+    './data/templates/ClassicSentence/ClassicSentence@1200x1200.vue'
+  ]],
   ['VideoTest', [
     './data/templates/VideoTest/VideoTest.vue',
   ]],

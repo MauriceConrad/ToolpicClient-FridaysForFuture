@@ -12,68 +12,40 @@
     </defs>
 
     <g clip-path="url(#bounding)">
+      <image v-bind:xlink:href="staticImageUrl" x="0" y="0" width="1080" height="1080" filter="url(#FFFVerlaufsumsetzungPrimary)"/>
 
-      <g style="transform: translate(0, -150px);">
-        <image v-bind:xlink:href="staticImageUrl" x="0" y="0" width="1080" height="1080"/>
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="365" y="190" width="350" height="350">
+      	<g style="fill: #fff;">
+      		<path d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035 c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719 c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z"/>
+      	</g>
+      </svg>
 
-        <FFFTitleShader offset="-12 -12" stroke="#fff" stroke-width="5">
-          <template>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="365" y="190" width="350" height="350">
-            	<g style="fill: #fff; transform-origin: 256px 256px; transform: scale(0.95);">
-            		<path d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035 c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719 c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z"/>
-            	</g>
-            </svg>
-          </template>
-          <template v-slot:shader>
-            <rect x="0" y="0" width="1080" height="1080" v-bind:style="{ fill: theme.secondaryTrue }"/>
-          </template>
-        </FFFTitleShader>
-
-        <g v-dynamic data-dynamic-width="900" data-dynamic-height="90" style="transform-origin: 540px 580px;">
-          <FFFTitleBox padding="12 30">
-            <text x="540" y="580" class="location-name">
-              {{ locationName }}
-            </text>
-          </FFFTitleBox>
-        </g>
-
-      </g>
-
-      <defs>
-        <clipPath id="bounding2">
-          <rect x="0" y="540" width="1080" height="540" />
-        </clipPath>
-      </defs>
-
-      <g clip-path="url(#bounding2)">
-        <image v-scaleimage="pos" x="0" y="540" width="1080" height="540" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungPrimary)" />
-      </g>
-
-      <g v-dynamic data-dynamic-width="1000" data-dynamic-height="300" style="transform-origin: 540px 570px;">
-        <MultiLine x="540" y="570" relative="0.5 0" padding="0" v-bind:text="title" align="center" lineheight="1.05" background="none" css="font-size: 150px; font-weight: 900; font-family: 'Jost'; fill: #fff;"></MultiLine>
-      </g>
-
-      <FFFTitleShader dynamic="540 200" origin="1050px 1030px" offset="-5 -5" stroke="#fff" stroke-width="2">
+      <FFFTitleShader dynamic="350 180" origin="1050px 30px" offset="-6 -6" stroke="#fff" stroke-width="2">
         <template>
-          <text x="1050" y="1030" class="time">
+          <text x="1050" y="30" class="time">
             {{ time }}
           </text>
         </template>
         <template v-slot:shader>
-          <!--<image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungSecondary)" />-->
-          <rect x="0" y="0" width="1080" height="1080" v-bind:style="{ fill: theme.secondaryTrue }"/>
+          <image v-bind:xlink:href="staticImageUrl" x="0" y="0" width="1080" height="1080" filter="url(#FFFVerlaufsumsetzungSecondary)"/>
         </template>
       </FFFTitleShader>
 
-      <g v-dynamic data-dynamic-width="500" data-dynamic-height="220" style="transform-origin: 30px 1050px;">
-        <MultiLine x="30" y="1050" relative="0 1" padding="0" v-bind:text="description" align="left" lineheight="1.05" background="none" css="font-size: 60px; font-style: italic; font-weight: 200; font-family: 'Jost'; fill: #fff;"></MultiLine>
-      </g>
 
-      <g style="transform: translate(445px, -445px);">
+      <Dynamic width="1000" height="300" origin="0 0.8">
+        <MultiLine x="30" y="850" relative="0 1" padding="0" v-bind:text="title" align="left" lineheight="1.1" background="none" css="font-size: 80px; font-weight: 800; font-family: 'Jost'; fill: #fff;"></MultiLine>
+      </Dynamic>
+
+      <Dynamic width="1000" height="220" origin="0 0">
+        <MultiLine x="30" y="860" relative="0 0" padding="0" v-bind:text="description" align="left" lineheight="1.05" background="none" css="font-size: 65px; font-weight: 800; font-family: 'Jost'; fill: none; stroke: #fff; stroke-width: 2px;"></MultiLine>
+      </Dynamic>
+
+      <g style="transform: translate(-445px, -445px);">
         <g style="transform-origin: 540px 540px; transform: scale(0.158);">
           <FFFLogo v-bind:og="og"></FFFLogo>
         </g>
       </g>
+
     </g>
   </svg>
 </template>
@@ -94,7 +66,7 @@
     font-weight: 900;
     font-size: 80px;
     fill: #fff;
-    alignment-baseline: baseline;
+    alignment-baseline: hanging;
     text-anchor: end;
   }
 </style>
@@ -113,18 +85,15 @@
         location: [8.259511022651054, 50.00152758659087],
         zoom: 15,
         bearing: 0,
-        locationName: 'BAHNHOFSPLATZ',
-        image: ['https://cdn.fridaysforfuture.io/toolpic/templates/EventMeetingLocation/bg.jpg'],
-        pos: 0,
+        //locationName: 'BAHNHOFSPLATZ',
         title: ['DEMO', 'TREFFPUNKT'],
         time: '12:00',
-        description: ['Mainz', 'Bahnhofsplatz', '(vor dem Eingang)'],
+        description: ['MAINZ BAHNHOFS-', 'PLATZ, EINGANG'],
         og: '',
         theme: {
           mapStyle: 'maurice-conrad/ck92zkw9h2dt71ip90h9hbz1u',
-          primary: ['#226c55', '#3dcc9f'],
-          secondary: ['#a40045', '#ff006b'],
-          secondaryTrue: '#FF005C'
+          primary: ['#20175A', '#7D93F8'],
+          secondary: ['#2e9575', '#43fec4']
         }
       }
     },
@@ -155,7 +124,7 @@
   import { Text, Textarea, Select, ImageSelect, Slider, Location } from 'fields';
 
   export const fields = [
-    {
+    /*{
       key: "theme",
       description: "Theme",
       component: Select,
@@ -183,7 +152,7 @@
           }
         ]
       }
-    },
+    },*/
     {
       key: "location",
       description: "Location",
@@ -213,50 +182,12 @@
         step: 5
       }
     },
-    {
+    /*{
       key: "locationName",
       description: "Location Name",
       component: Text,
       props: {}
-    },
-    {
-      key: "pos",
-      description: "Background Position",
-      component: Slider,
-      props: {
-        min: -1,
-        max: 1,
-        step: 0.1
-      }
-    },
-    {
-      key: "image",
-      description: "Background",
-      component: ImageSelect,
-      props: {
-        width: 540,
-        height: 1080,
-        convertToJPG: true,
-        max: 1,
-        sources: [
-          {
-            type: "FileUpload",
-            label: "Upload"
-          },
-          {
-            type: "ResourceSpace",
-            label: "FFF",
-            options: {
-              host: "bilder.fffutu.re"
-            }
-          },
-          {
-            type: "Pixabay",
-            label: "Pixabay"
-          }
-        ]
-      }
-    },
+    },*/
     {
       key: "title",
       description: "Title",

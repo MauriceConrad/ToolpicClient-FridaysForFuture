@@ -11,8 +11,10 @@
     </defs>
 
     <g clip-path="url(#bounding)">
-      <g style="transform: translate(0, 250px);">
-        <image v-bind:xlink:href="staticImageUrl" x="0" y="0" width="1080" height="1080"/>
+      <g style="transform: translate(0, 150px);">
+        <g filter="url(#FFFVerlaufsumsetzungPrimary)">
+          <image v-scaleimage="0" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="staticImageUrl" />
+        </g>
 
         <FFFTitleShader offset="-12 -12" stroke="#fff" stroke-width="5">
           <template>
@@ -40,36 +42,21 @@
             {{ locationAddress }}
           </text>
         </g>
-
       </g>
 
       <g>
-        <defs>
-          <clipPath id="area-secondary">
-            <path d="M 0,0 L 1080,0 1080,450 L 0,250"/>
-          </clipPath>
-        </defs>
-        <g clip-path="url(#area-secondary)">
-          <image v-scaleimage="pos" x="0" y="0" width="1080" height="450" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungPrimary)" />
-        </g>
-
-
-        <g style="transform-origin: 540px 30px;" v-dynamic data-dynamic-width="1000" data-dynamic-height="250">
-          <MultiLine x="540" y="30" relative="0.5 0" padding="0" v-bind:text="title" align="center" lineheight="1.2" background="none" css="font-size: 120px; font-weight: 900; font-family: 'Jost'; fill: #fff;"></MultiLine>
-        </g>
 
 
 
-        <g style="transform-origin: 1060px 310px;" v-dynamic data-dynamic-width="300" data-dynamic-height="90">
-          <text x="1060" y="310" class="text-date">
-            {{ date }}
-          </text>
-        </g>
-        <g style="transform-origin: 1060px 340px;" v-dynamic data-dynamic-width="220" data-dynamic-height="80">
-          <text x="1060" y="340" class="text-time">
-            {{ time }}
-          </text>
-        </g>
+        <Dynamic width="1000" height="330" origin="0 0">
+          <MultiLine x="40" y="30" relative="0 0" padding="0" v-bind:text="title" align="left" lineheight="1.1" background="none" css="font-size: 120px; font-weight: 900; font-family: 'Jost'; fill: #fff;"></MultiLine>
+        </Dynamic>
+
+        <Dynamic width="850" height="230" origin="0 0.9">
+          <MultiLine x="40" y="1060" relative="0 1" padding="0" v-bind:text="date" align="left" lineheight="1.05" background="none" css="font-size: 100px; font-weight: 900; font-family: 'Jost'; fill: none; stroke: #fff; stroke-width: 2.5px;"></MultiLine>
+        </Dynamic>
+
+
       </g>
 
       <g style="transform: translate(445px, 445px);">
@@ -137,15 +124,12 @@
         bearing: 0,
         locationName: 'LANDESMUSEUM',
         locationAddress: 'Große Bleiche, 55118 Mainz',
-        image: ['https://cdn.fridaysforfuture.io/toolpic/templates/MapEventLocation/bg.jpg'],
-        pos: 0,
-        title: ['“GROßE', 'FILMVORFÜHRUNG”'],
-        date: '18.09.2020',
-        time: '19:00',
+        title: ['GROßE', 'FILMVORFÜHRUNG'],
+        date: ['18.09, 19:00 UHR'],
         og: '',
         theme: {
           mapStyle: 'maurice-conrad/ck92zkw9h2dt71ip90h9hbz1u',
-          primary: ['#226c55', '#3dcc9f'],
+          primary: ['#20175A', '#7D93F8'],
           secondary: '#FF005C'
         }
       }
@@ -158,7 +142,7 @@
         const pitch = 60;
         const size = {
           width: 540,
-          height: 540
+          height: 800
         };
 
 
@@ -214,44 +198,6 @@
       props: {}
     },
     {
-      key: "pos",
-      description: "Background Position",
-      component: Slider,
-      props: {
-        min: -1,
-        max: 1,
-        step: 0.1
-      }
-    },
-    {
-      key: "image",
-      description: "Background",
-      component: ImageSelect,
-      props: {
-        width: 540,
-        height: 1080,
-        convertToJPG: true,
-        max: 1,
-        sources: [
-          {
-            type: "FileUpload",
-            label: "Upload"
-          },
-          {
-            type: "ResourceSpace",
-            label: "FFF",
-            options: {
-              host: "bilder.fffutu.re"
-            }
-          },
-          {
-            type: "Pixabay",
-            label: "Pixabay"
-          }
-        ]
-      }
-    },
-    {
       key: "title",
       description: "Title",
       component: Textarea,
@@ -262,14 +208,10 @@
     {
       key: "date",
       description: "Date",
-      component: Text,
-      props: {}
-    },
-    {
-      key: "time",
-      description: "Time",
-      component: Text,
-      props: {}
+      component: Textarea,
+      props: {
+        rows: 'auto'
+      }
     },
     {
       key: "og",
