@@ -614,7 +614,7 @@ export default [
     ]
   },
   {
-    icon: "icons/pagination/grandmother.svg",
+    icon: "icons/pagination/fashion.svg",
     name: "FFF Classic",
     items: [
       {
