@@ -30,7 +30,7 @@
   vertical-align: middle;
   display: inline-block;
 }
-.swiper-slide .inner .items-list {
+.items-list {
   transition: transform 0.7s;
   width: 100%;
   list-style: none;

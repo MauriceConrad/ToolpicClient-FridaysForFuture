@@ -62,6 +62,7 @@ const mySession = new Session();
         "twitter": "icons/twitter.svg",
         "tabs": [
           "icons/megaphone.svg",
+          "icons/pagination/fashion.svg",
           "icons/ink.svg",
           "icons/picture.svg",
           "icons/settings.svg"
@@ -163,7 +164,8 @@ const mySession = new Session();
         //activeViewIndex == 0 ? activeTemplateGroup.name : ""
         return [
           "Templates",
-          "",
+          "FFF Classic",
+          "Edit",
           "Result",
           "Mehr"
         ][this.activeViewIndex];
@@ -194,7 +196,7 @@ const mySession = new Session();
         ]);
       },
       tabs() {
-        const tabs = ["Templates", "Edit", "Render", "Mehr"];
+        const tabs = ["Activist", "Classic", "Edit", "Render", "Mehr"];
 
         return Promise.all(tabs.map(async (label, index) => {
           const icon = await this.icons.tabs[index];
@@ -387,7 +389,7 @@ const mySession = new Session();
           item.documents = await Promise.all(item.documents.map(async docPromise => await docPromise));
           if (changeView) {
             // Move to edit view
-            this.activeViewIndex = 1;
+            this.activeViewIndex = 2;
           }
 
           this.activeDocIndex = docIndex;
@@ -530,7 +532,7 @@ const mySession = new Session();
       position: [0.5, 0.5],
       relative: [0.1, 0],
       float: 'top',
-      validate: () => app.activeViewIndex == 1
+      validate: () => app.activeViewIndex == 2
     },
     '.btn-group-edit-preview': {
       text: 'Hier kannst du zwischen Edit und Vorschau wechseln!',
@@ -538,7 +540,7 @@ const mySession = new Session();
       position: [0.35, 0.5],
       relative: [0.1, 0],
       float: 'top',
-      validate: () => app.activeViewIndex == 1
+      validate: () => app.activeViewIndex == 2
     },
     '[data-component-type="StockFootage"]': {
       text: 'Hier findest du unsere eigene Stock Image Datenbank mit Streikbildern aus allen Städten. Außerdem hast zu direkten Zugang zur Datenbank von Pixabay und Pexels.',
@@ -547,7 +549,7 @@ const mySession = new Session();
       position: [0.1, 0.5],
       relative: [0.1, 0],
       float: 'top',
-      validate: () => app.activeViewIndex == 1
+      validate: () => app.activeViewIndex == 2
     }
   });
 })();

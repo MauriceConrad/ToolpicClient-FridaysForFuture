@@ -67,28 +67,28 @@
       <div class="bar bar-top">
         <div class="bar-inner">
           <div class="bar-area bar-area-left">
-            <div class="btn-group btn-group-edit-preview" v-if="activeViewIndex == 1 && isMobile">
+            <div class="btn-group btn-group-edit-preview" v-if="activeViewIndex == 2 && isMobile">
               <div class="btn btn-icon" v-bind:class="{ active: activeEditView == 0 }" @click="activeEditView = 0">
                 <div class="icon" v-html="iconsEditGroup ? iconsEditGroup[0] : ''"></div>
               </div>
-              <div class="btn btn-icon" v-bind:class="{ active: activeEditView == 1 }" @click="activeEditView = 1">
+              <div class="btn btn-icon" v-bind:class="{ active: activeEditView == 2 }" @click="activeEditView = 2">
                 <div class="icon" v-html="iconsEditGroup ? iconsEditGroup[1] : ''"></div>
               </div>
             </div>
-            <div class="btns btns-export" data-hint="Hier kannst du das SharePic rendern!" v-if="activeViewIndex == 1">
-              <div class="btn" v-on:click="renderTemplate(); activeViewIndex = 2">
+            <div class="btns btns-export" data-hint="Hier kannst du das SharePic rendern!" v-if="activeViewIndex == 2">
+              <div class="btn" v-on:click="renderTemplate(); activeViewIndex = 3">
                 <div class="icon" v-html="iconsRenderView ? iconsRenderView[1] : ''"></div>
               </div>
 
             </div>
           </div>
-          <div class="title" v-if="pageTitle">
+          <div class="title" v-if="pageTitle" v-bind:class="{ hide: activeViewIndex == 2 && isMobile }">
             <h1>
               {{ activeViewIndex == 0 ? activeTemplateGroup.name : pageTitle  }}
             </h1>
           </div>
           <div class="bar-area bar-area-right">
-            <select class="select-doc" v-if="activeTemplate && activeViewIndex == 1" @change="changeDoc" v-model="activeDocIndex">
+            <select class="select-doc" v-if="activeTemplate && activeViewIndex == 2" @change="changeDoc" v-model="activeDocIndex">
               <option v-for="doc in activeTemplate.documents" v-bind:value="activeTemplate.documents.indexOf(doc)">
                 {{ doc.alias }}
               </option>
@@ -96,7 +96,7 @@
             <!--<div class="select-proxy" v-if="activeTemplate && activeViewIndex == 1" @click="proxySelect">
               {{ activeTemplate.documents[activeDocIndex].alias }}
             </div>-->
-            <div class="btns" v-if="activeViewIndex == 2">
+            <div class="btns" v-if="activeViewIndex == 3">
               <div class="btn" v-on:click="download" v-if="results.length">
                 <div class="icon" v-html="iconsRenderView[2]"></div>
               </div>
@@ -113,7 +113,7 @@
           <div class="views-inner" v-bind:style="{ left: '-' + (activeViewIndex * 1 * 100) + '%' }">
             <div class="view view-templates">
               <swiper ref="viewSwiper" :options="swiperOptions" @slide-change="swiperSlideChange">
-                <swiper-slide v-for="group in templates">
+                <swiper-slide v-for="group in templates.slice(0, templates.length - 1)">
                   <div class="inner">
 
                     <ul class="items-list">
@@ -132,6 +132,30 @@
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>
                 <div class="swiper-scrollbar" slot="scrollbar"></div>
+              </swiper>
+            </div>
+            <div class="view view-classic">
+
+              <swiper ref="viewSwiper" :options="swiperOptions" @slide-change="swiperSlideChange">
+                <swiper-slide v-for="group in templates.slice(templates.length - 1)">
+                  <div class="inner">
+
+                    <ul class="items-list">
+                      <li v-for="item in group.items">
+                        <div class="item-inner">
+                          <div class="item-render" @click="selectTemplate(item)">
+                            <img v-bind:src="item.preview" v-bind:alt="item.name">
+                          </div>
+                          <div class="item-label">
+                            {{ item.name }}
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </swiper-slide>
+                <!--<div class="swiper-pagination" slot="pagination"></div>
+                <div class="swiper-scrollbar" slot="scrollbar"></div>-->
               </swiper>
             </div>
             <div class="view view-edit">
@@ -201,7 +225,7 @@
             </div>
             <div class="view view-settings">
               <div class="inner">
-                <div class="content-settings" v-if="activeViewIndex == 3">
+                <div class="content-settings" v-if="activeViewIndex == 4">
                   <div class="title">
                     <img src="data/resources/compass.svg" alt="Toolpic" class="emblem">
                     <div class="law-text">

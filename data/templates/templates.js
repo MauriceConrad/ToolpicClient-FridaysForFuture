@@ -763,19 +763,6 @@ export default [
           }
         ]
       }
-      /*{
-        name: "VideoTest",
-        preview: "data/templates/VideoTest/preview.jpg",
-        documents: [
-          import('./VideoTest/VideoTest.vue')
-        ],
-        documentsCompiled: [
-          {
-            root: "https://dev.maurice-conrad.eu/toolpic-cdn/templates_compiled/VideoTest/VideoTest.vue.js",
-            assets: "https://dev.maurice-conrad.eu/toolpic-cdn/templates_compiled/VideoTest"
-          }
-        ]
-      }*/
     ]
   }
 ]

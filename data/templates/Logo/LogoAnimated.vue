@@ -94,7 +94,7 @@
             value: {
               primary: '#1B7340',
               secondary: '#000',
-              secondary2: '#fff',
+              secondary2: '#111',
               secondary3: '#90D3ED'
             }
           },

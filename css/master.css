@@ -64,6 +64,9 @@ html, body {
   color: #fff;
   padding: 10px 0;
 }
+.bar .bar-inner .title.hide {
+  display: none;
+}
 .bar .bar-inner .title:before {
   display: inline-block;
   width: 0;
@@ -79,7 +82,10 @@ html, body {
 }
 @media screen and (max-width: 650px) {
   .bar .bar-inner .title h1 {
-    font-size: 1.5em;
+    font-size: 1.4em;
+  }
+  .bar .bar-inner .title {
+
   }
 }
 
@@ -287,6 +293,15 @@ html, body {
 .view {
   position: relative;
 
+}
+
+.view-classic {
+
+}
+.view-classic .items-list {
+
+  height: 100%;
+  width: 100%;
 }
 .view .inner {
   position: absolute;

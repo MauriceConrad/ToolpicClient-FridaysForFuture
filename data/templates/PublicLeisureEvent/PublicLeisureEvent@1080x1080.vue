@@ -169,6 +169,12 @@
       }
     },
     {
+      key: "date",
+      description: "Date",
+      component: Text,
+      props: {}
+    },
+    {
       key: "location",
       description: "Location",
       component: Text,

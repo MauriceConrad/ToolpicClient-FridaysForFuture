@@ -28,15 +28,16 @@
           </g>
 
           <g ref="ogNameEmulator">
-            <g v-dynamic data-dynamic-width="700" data-dynamic-height="130" style="transform-origin: 540px 540px;">
+            <Dynamic width="700" height="130" origin="0.5 0.5">
               <text class="og-name" x="540" y="540">
                 {{ og }}
               </text>
-            </g>
+            </Dynamic>
           </g>
         </defs>
+
         <g>
-          <text class="og-name" dy="-70" dx="550" v-bind:style="{ fill: theme.secondary, 'font-size': (bbox($refs.ogNameEmulator).height) + 'px', 'letter-spacing': (bbox($refs.ogNameEmulator).height * 0.115) + 'px' }">
+          <text class="og-name" dy="-70" dx="550" v-bind:style="{ fill: theme.secondary, 'font-size': fontSize + 'px', 'letter-spacing': (bbox($refs.ogNameEmulator).height * 0.115) + 'px' }">
             <textPath xlink:href="#slogan-path-4">
               {{ og }}
             </textPath>
@@ -1823,6 +1824,15 @@
     letter-spacing: 13px;
     text-anchor: middle;
   }
+  .og-name-name {
+    font-family: 'Jost';
+    font-weight: 600;
+    fill: #000;
+    font-size: 120px;
+    text-anchor: start;
+    alignment-baseline: middle;
+    text-anchor: middle;
+  }
 </style>
 
 <script>
@@ -1860,8 +1870,16 @@
     },
     data() {
       return {
-
+        fontSize: 100
       }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.fontSize = this.bbox(this.$refs.ogNameEmulator).height;
+      }, 500);
+    },
+    updated() {
+      this.fontSize = this.bbox(this.$refs.ogNameEmulator).height;
     },
     components: FFFCIComponents
   }
