@@ -38,7 +38,9 @@
           </text>
         </template>
         <template v-slot:shader>
-          <image v-scaleimage="pos" x="0" y="0" width="1080" height="648" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungSecondary)" />
+          <g filter="url(#FFFVerlaufsumsetzungSecondary)">
+            <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" />
+          </g>
         </template>
       </FFFTitleShader>
 

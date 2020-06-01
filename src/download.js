@@ -68,6 +68,12 @@ export default function download(data, strFileName, strMimeType) {
 
 
 		if ('download' in a) { //html5 A[download]
+			a.className = 'download-phantom';
+			a.style = `
+				position: fixed;
+				left: 200%;
+				top: 200%;
+			`;
 			a.href = url;
 			a.setAttribute("download", fn);
 			a.innerHTML = "downloading...";

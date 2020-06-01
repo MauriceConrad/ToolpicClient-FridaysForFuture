@@ -6,6 +6,20 @@ export default [
     name: "Demo",
     items: [
       {
+        name: "WebinarTemplate",
+        preview: "https://cdn.fridaysforfuture.io/toolpic/templates/AnnouncementStrike/preview.jpg",
+        documents: [
+          import('./WebinarTemplate/WebinarTemplate@1080x1080.vue'),
+          //import('./Date2/Date2@1200x675.vue')
+        ],
+        documentsCompiled: [
+          /*{
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/AnnouncementStrike/AnnouncementStrike@1080x1080.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/AnnouncementStrike"
+          }*/
+        ]
+      },
+      {
         name: "Date",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/AnnouncementStrike/preview.jpg",
         documents: [
@@ -167,20 +181,6 @@ export default [
           {
             root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Support/Support@1080x1080.vue.js",
             assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Support"
-          }
-        ]
-      },
-      {
-        name: "Support Campaign",
-        preview: "https://cdn.fridaysforfuture.io/toolpic/templates/SupportCampaign/preview.jpg",
-        documents: [
-          import('./SupportCampaign/SupportCampaign@1080x1080.vue'),
-          //import('./Date2/Date2@1200x675.vue')
-        ],
-        documentsCompiled: [
-          {
-            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/SupportCampaign/SupportCampaign@1080x1080.vue.js",
-            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/SupportCampaign"
           }
         ]
       },

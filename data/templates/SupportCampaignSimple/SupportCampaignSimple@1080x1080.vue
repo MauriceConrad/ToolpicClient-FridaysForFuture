@@ -33,7 +33,7 @@
                 relative="0 0"
                 lineheight="1.1"
                 align="left"
-                dynamic="1000 600"
+                dynamic="920 600"
                 highlight-padding="0 6 0 12"
                 v-bind:text="textToMultilineFormat(description.join(' ').toUpperCase(), 0.8, 0.4, true)"
                 css="font-size: 70px; font-weight: 700; font-family: 'Jost'; fill: #fff;">

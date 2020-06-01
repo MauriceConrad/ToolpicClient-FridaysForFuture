@@ -84,7 +84,7 @@
         text: [
           'GESUCHT SIND:',
           'FOTOGRAF*INNEN',
-          'AWEARENESS MENSCHI',
+          'AWARENESS MENSCHI',
           '& BANNERTRAGENDE'
         ],
         message: 'MELDE DICH BEI UNS',

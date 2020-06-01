@@ -1,5 +1,5 @@
 import { createElement } from '../helper'
-import EventEmitter from 'Events'
+import EventEmitter from 'events';
 
 
 class SmartAction extends EventEmitter {

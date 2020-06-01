@@ -26,7 +26,7 @@
       </FFFTitleShader>
 
       <g v-dynamic data-dynamic-width="1000" data-dynamic-height="800" style="transform-origin: 40px 160px;">
-        <MultiLine x="40" y="160" relative="0 0" padding="0" v-bind:text="textToMultilineFormat(text.join(' ').toUpperCase(), 1, 0.4, true)" align="left" lineheight="1.2" background="none" css="font-size: 60px; font-weight: 800; font-family: 'Jost'; fill: none; stroke: #fff; stroke-width: 3px;"></MultiLine>
+        <MultiLine x="40" y="160" relative="0 0" padding="0" v-bind:text="textToMultilineFormat(text.join(' ').toUpperCase(), 1, 0.4, true)" align="left" lineheight="1.2" background="none" css="font-size: 60px; font-weight: 800; font-family: 'Jost'; fill: #fff;"></MultiLine>
       </g>
 
       <g v-dynamic data-dynamic-width="400" data-dynamic-height="100" style="transform-origin: 1050px 1050px;">
@@ -66,10 +66,12 @@
   .hashtag {
     font-size: 60px;
     font-family: 'Jost';
-    fill: #fff;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
     text-anchor: start;
     alignment-baseline: baseline;
-    font-weight: 200;
+    font-weight: 800;
   }
 </style>
 

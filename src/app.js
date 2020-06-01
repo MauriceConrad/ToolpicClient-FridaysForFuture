@@ -34,6 +34,7 @@ const mySession = new Session();
   const app = new Vue({
     el: '.app',
     data: {
+      __electron: false,
       __smartInstance: null,
       __mounted: false,
       fieldComponents: [],
@@ -207,6 +208,12 @@ const mySession = new Session();
     mounted() {
       // Init refresh
 
+      if (document.body.classList.contains("electron")) {
+        this.__electron = true;
+      }
+
+      console.log(this.__electron);
+
 
       const loadingView = document.querySelector(".loading-view");
       loadingView.classList.add("hide");
@@ -245,6 +252,11 @@ const mySession = new Session();
       this.__mounted = true;
     },
     methods: {
+      handlePreviewDragStart(event) {
+        event.preventDefault();
+
+        //ipcRenderer.send('ondragstart', '/path/to/item');
+      },
       handleClickSlide() {
 
       },
@@ -552,6 +564,8 @@ const mySession = new Session();
       validate: () => app.activeViewIndex == 2
     }
   });
+
+
 })();
 
 
@@ -560,7 +574,6 @@ const mySession = new Session();
 
 
 window.addEventListener("load", function() {
-
 
   window.addEventListener("resize", function() {
     try {

@@ -33,7 +33,7 @@
 
 
       <Dynamic width="840" height="380" origin="0 0.8">
-        <MultiLine x="40" y="1060" relative="0 1" padding="0" v-bind:text="textToMultilineFormat(message.join(' ').toUpperCase(), 0.55, 0.4, true)" align="left" lineheight="1.2" background="none" css="font-size: 60px; font-weight: 800; font-family: 'Jost'; fill: none; stroke: #fff; stroke-width: 2.5px;"></MultiLine>
+        <MultiLine x="40" y="1060" relative="0 1" padding="0" v-bind:text="textToMultilineFormat(message.join(' ').toUpperCase(), 0.55, 0.4, true)" align="left" lineheight="1.2" background="none" css="font-size: 60px; font-weight: 800; font-family: 'Jost'; fill: #fff;"></MultiLine>
       </Dynamic>
 
       <g style="transform: translate(445px, 445px);">
