@@ -25,10 +25,13 @@
         og: 'Mainz',
         label: '',
         theme: {
-          primary: 'none',
-          secondary: '#fff',
-          secondary2: '#111',
-          secondary3: '#fff'
+          bgColor: 'none',
+          ogColor: '#fff',
+          tradeColor: '#fff',
+          earthColor: '#fff',
+          innerBorderColor: '#fff',
+          descriptionBgColor: '#111',
+          descriptionColor: '#fff'
         },
         pos: 0
       }
@@ -48,28 +51,49 @@
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6IG5vbmU7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: 'none',
+              bgColor: 'none',
+              ogColor: '#fff',
+              tradeColor: '#fff',
+              earthColor: '#fff',
+              innerBorderColor: '#fff',
+              descriptionBgColor: '#111',
+              descriptionColor: '#fff'
+              /*primary: 'none',
               secondary: '#fff',
               secondary2: '#111',
-              secondary3: '#fff'
+              secondary3: '#fff'*/
             }
           },
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMxQjczNDA7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: '#1B7340',
+              /*primary: '#1B7340',
               secondary: '#000',
               secondary2: '#111',
-              secondary3: '#90D3ED'
+              secondary3: '#90D3ED'*/
+              bgColor: '#1B7340',
+              ogColor: '#000',
+              tradeColor: '#fff',
+              earthColor: '#90D3ED',
+              innerBorderColor: '#90D3ED',
+              descriptionBgColor: '#111',
+              descriptionColor: '#fff'
             }
           },
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMxREE2NEE7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: '#1DA64A',
+              /*primary: '#1DA64A',
               secondary: '#000',
               secondary2: '#111',
-              secondary3: '#fff'
+              secondary3: '#fff'*/
+              bgColor: '#1DA64A',
+              ogColor: '#000',
+              tradeColor: '#fff',
+              earthColor: '#fff',
+              innerBorderColor: '#fff',
+              descriptionBgColor: '#111',
+              descriptionColor: '#fff'
             }
           },
           /*{
@@ -93,28 +117,49 @@
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMzZGNjOWY7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: '#3dcc9f',
+              /*primary: '#3dcc9f',
               secondary: '#000',
               secondary2: '#FF005C',
-              secondary3: '#fff'
+              secondary3: '#fff'*/
+              bgColor: '#3dcc9f',
+              ogColor: '#000',
+              tradeColor: '#fff',
+              earthColor: '#fff',
+              innerBorderColor: '#fff',
+              descriptionBgColor: '#FF005C',
+              descriptionColor: '#fff'
             }
           },
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICNGRjAwNUM7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: '#FF005C',
+              /*primary: '#FF005C',
               secondary: '#000',
               secondary2: '#3dcc9f',
-              secondary3: '#fff'
+              secondary3: '#fff'*/
+              bgColor: '#FF005C',
+              ogColor: '#000',
+              tradeColor: '#fff',
+              earthColor: '#fff',
+              innerBorderColor: '#fff',
+              descriptionBgColor: '#3dcc9f',
+              descriptionColor: '#fff'
             }
           },
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMyMDE3NUE7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: '#20175A',
+              /*primary: '#20175A',
               secondary: '#fff',
               secondary2: '#7D93F8',
-              secondary3: '#fff'
+              secondary3: '#fff'*/
+              bgColor: '#20175A',
+              ogColor: '#fff',
+              tradeColor: '#fff',
+              earthColor: '#fff',
+              innerBorderColor: '#fff',
+              descriptionBgColor: '#7D93F8',
+              descriptionColor: '#fff'
             }
           }/*,
           {

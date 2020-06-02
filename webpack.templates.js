@@ -157,9 +157,9 @@ const bundles = new Map([
   ]],
 
   ['Logo', [
-    './data/templates/Logo/Logo.vue',
     './data/templates/Logo/LogoNew.vue',
-    './data/templates/Logo/LogoAnimated.vue'
+    './data/templates/Logo/LogoAnimated.vue',
+    './data/templates/Logo/Logo_BLM.vue'
   ]]
 
 

@@ -584,6 +584,19 @@ export default [
         ]
       }*/
       {
+        name: "Logo Black Lives Matter",
+        preview: "https://cdn.fridaysforfuture.io/toolpic/templates/Logo/preview_BLM.png",
+        documents: [
+          import('./Logo/Logo_BLM.vue'),
+        ],
+        documentsCompiled: [
+          {
+            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Logo/Logo_BLM.vue.js",
+            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Logo"
+          }
+        ]
+      },
+      {
         name: "Logo",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/Logo/preview.png",
         documents: [
