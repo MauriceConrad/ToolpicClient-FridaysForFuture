@@ -51,7 +51,7 @@
         <defs>
           <path id="slogan-path-1" d="M 0,540 A 540 540 0 1 1 1080,540" />
         </defs>
-        <text class="slogan" dy="30">
+        <text class="slogan" dy="30"  v-bind:style="{ fill: theme.tradeColor }">
           <textPath xlink:href="#slogan-path-1">
             FRIDAYS FOR
           </textPath>
@@ -62,7 +62,7 @@
           <path id="slogan-path-2" d="M 0,540 A 540 540 0 1 0 540,0" />
         </defs>
 
-        <text class="slogan slogan2" dy="-55" dx="670">
+        <text class="slogan slogan2" dy="-55" dx="670"  v-bind:style="{ fill: theme.tradeColor }">
           <textPath xlink:href="#slogan-path-2">
             FUTURE
           </textPath>
