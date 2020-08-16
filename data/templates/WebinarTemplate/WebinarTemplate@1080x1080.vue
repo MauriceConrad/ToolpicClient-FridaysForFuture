@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" xmlns:xlink="http://www.w3.org/1999/xlink">
     <circle cx="540" cy="540" r="500" style="fill: #f00;" />
 
     <Dynamic origin="0.5 0.5" width="1000" height="500">

@@ -5,7 +5,7 @@ export default [
     icon: "icons/pagination/bullhorn.svg",
     name: "Demo",
     items: [
-      {
+      /*{
         name: "WebinarTemplate",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/AnnouncementStrike/preview.jpg",
         documents: [
@@ -13,12 +13,9 @@ export default [
           //import('./Date2/Date2@1200x675.vue')
         ],
         documentsCompiled: [
-          /*{
-            root: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/AnnouncementStrike/AnnouncementStrike@1080x1080.vue.js",
-            assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/AnnouncementStrike"
-          }*/
+
         ]
-      },
+      },*/
       {
         name: "Date",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/AnnouncementStrike/preview.jpg",
@@ -583,7 +580,7 @@ export default [
           }
         ]
       }*/
-      {
+      /*{
         name: "Logo Black Lives Matter",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/Logo/preview_BLM.png",
         documents: [
@@ -595,7 +592,7 @@ export default [
             assets: "https://cdn.fridaysforfuture.io/toolpic/templates_precompiled/Logo"
           }
         ]
-      },
+      },*/
       {
         name: "Logo",
         preview: "https://cdn.fridaysforfuture.io/toolpic/templates/Logo/preview.png",

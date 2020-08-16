@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
     </defs>
@@ -129,7 +129,7 @@
         og: '',
         theme: {
           mapStyle: 'maurice-conrad/ck92zkw9h2dt71ip90h9hbz1u',
-          primary: ['#20175A', '#7D93F8'],
+          primary: ['#1a145d', '#98b6eb'],
           secondary: '#FF005C'
         }
       }

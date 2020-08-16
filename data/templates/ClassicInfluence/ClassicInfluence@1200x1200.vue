@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <clipPath id="bounding">
         <rect x="0" y="0" width="1200" height="1200" />

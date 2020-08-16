@@ -1,7 +1,7 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.mapPrimray.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
+      <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.mapPrimary.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
     </defs>
 
     <image x="0" y="0" width="1080" height="1080" v-bind:href="url" filter="url(#FFFVerlaufsumsetzungPrimary)" />
@@ -210,7 +210,7 @@
         og: '',
         theme: {
           mapStyle: 'maurice-conrad/ck92zkw9h2dt71ip90h9hbz1u',
-          mapPrimray: ['#20175A', '#7D93F8'],
+          mapPrimary: ['#1a145d', '#98b6eb'],
           primary: '#FF005C',
           secondary: '#3dcc9f'
         }
@@ -303,33 +303,6 @@
   }
   import { Text, Textarea, Select, Slider, Route, Collection, Location, Toggle } from 'fields';
   export const fields = [
-    {
-      key: "theme",
-      description: "Theme",
-      component: Select,
-      props: {
-        items: [
-          // Megenta : Pastel
-          {
-            render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMyMDE3NUE7IiAvPgo8L3N2Zz4=",
-            value: {
-              mapStyle: 'maurice-conrad/ck92zkw9h2dt71ip90h9hbz1u',
-              primary: '#FF005C',
-              secondary: '#3dcc9f'
-            }
-          },
-          // Pastel : Magenta
-          {
-            render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMzNzM3Mzc7IiAvPgo8L3N2Zz4=",
-            value: {
-              mapStyle: 'maurice-conrad/ck92z1mfu0h9g1ioqjv0xr3py',
-              primary: '#FF005C',
-              secondary: '#7D93F8'
-            }
-          }
-        ]
-      }
-    },
     {
       key: "route",
       description: "Route",

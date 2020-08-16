@@ -126,7 +126,7 @@
       }
     },
     methods: {
-      
+
     }
   };
 
@@ -192,6 +192,12 @@
         description: "Ort & Datum anzeigen",
         styleClass: 'mt-android'
       }
+    },
+    {
+      key: "subtitle",
+      description: "Subtitle",
+      component: Text,
+      props: {}
     },
     {
       key: "title",

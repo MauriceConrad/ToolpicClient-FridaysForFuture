@@ -183,6 +183,12 @@
       }
     },
     {
+      key: "subtitle",
+      description: "Subtitle",
+      component: Text,
+      props: {}
+    },
+    {
       key: "title",
       description: "Title",
       component: Textarea,

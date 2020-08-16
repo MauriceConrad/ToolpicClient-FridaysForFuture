@@ -1,15 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <GradientMapFilter id="FFFVerlaufsumsetzungSecondary" v-bind:gradient="theme.secondary.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
       <GradientMapFilter id="FFFVerlaufsumsetzungPrimary" v-bind:gradient="theme.primary.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
-      <GradientMapFilter id="FFFVerlaufsumsetzungPrimaryAlternate" v-bind:gradient="theme.primaryAlternate.join(' ')" opacity="1" brightness="1"></GradientMapFilter>
     </defs>
 
     <defs>
-      <clipPath id="bounding-area-alternate">
-        <rect x="0" y="650" width="1080" height="430" />
-      </clipPath>
       <clipPath id="bounding">
         <rect x="0" y="0" width="1080" height="1080" />
       </clipPath>
@@ -19,9 +15,6 @@
 
     <g class="main" clip-path="url(#bounding)">
       <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungPrimary)" />
-      <g clip-path="url(#bounding-area-alternate)">
-        <image v-scaleimage="pos" x="0" y="0" width="1080" height="1080" v-bind:xlink:href="image[0]" filter="url(#FFFVerlaufsumsetzungPrimaryAlternate)" />
-      </g>
       <FFFTitleShader dynamic="1000 600" origin="540px 350px" offset="-9 -9" stroke="#fff" stroke-width="3">
         <template>
           <MultiLine x="540" y="350" relative="0.5 0.5" padding="0 0" align="center" v-bind:text="title" lineheight="1.05" background="none" css="font-size: 150px; font-weight: 900; font-family: 'Jost';"></MultiLine>
@@ -68,8 +61,7 @@
         message: ['LOREM IMPSUM DOLOR SIT', 'AMET UND NOCH DER GANZE', 'LATEIN KRAM DEN ICH NICHT', 'KANN ABER ALS VORLAGE', 'REICHT JA ALSO LIES NICHT', 'ZWANGSLÄUFIG WEITER!'],
         og: '',
         theme: {
-          primary: ['#20175A', '#7D93F8'],
-          primaryAlternate: ['#830037', '#ff006b'],
+          primary: ['#1a145d', '#98b6eb'],
           secondary: ['#2e9575', '#43fec4']
         }
       }
@@ -90,8 +82,7 @@
           {
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMyMDE3NUE7IiAvPgo8L3N2Zz4=",
             value: {
-              primary: ['#20175A', '#7D93F8'],
-              primaryAlternate: ['#830037', '#ff006b'],
+              primary: ['#1a145d', '#98b6eb'],
               secondary: ['#2e9575', '#43fec4']
             }
           },
@@ -100,10 +91,17 @@
             render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICMzZGNjOWY7IiAvPgo8L3N2Zz4=",
             value: {
               primary: ['#226c55', '#3dcc9f'],
-              primaryAlternate: ['#20175A', '#7D93F8'],
               secondary: ['#a40045', '#ff006b']
             }
-          }
+          },
+          // Megenta : Pastel
+          {
+            render: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9ImZpbGw6ICNGRjAwNUM7IiAvPgo8L3N2Zz4=",
+            value: {
+              primary: ['#830037', '#ff006b'],
+              secondary: ['#2e9575', '#43fec4']
+            }
+          },
         ]
       }
     },
