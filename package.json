@@ -36,7 +36,7 @@
     "animejs": "^3.2.0",
     "mapbox-gl": "^1.9.1",
     "simplify-js": "^1.2.4",
-    "swiper": "^5.3.6",
+    "swiper": "^6.5.1",
     "toolpic": "^0.6.0",
     "vue-async-computed": "^3.1.2",
     "vue-awesome-swiper": "^4.0.7"
